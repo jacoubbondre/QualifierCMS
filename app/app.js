@@ -33,11 +33,18 @@ System.register(['angular2/platform/browser', 'angular2/http', './services/logge
             //import {VideoPlayer} from './landing.video-player';
             AppComponent = (function () {
                 function AppComponent() {
+                    this.appName = "Basic Firebase App";
+                    this.firebaseUrl = "https://luminous-inferno-5792.firebaseio.com/test";
+                    this.messagesRef = new Firebase(this.firebaseUrl);
+                    this.messagesRef.set({
+                        name: 'bob',
+                        text: 'newString'
+                    });
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'main-app',
-                        template: "\n\t<!-- Put your HTML HERE -->\n\t<h1>Eat it biatch!</h1>\n\t",
+                        template: "\n\t<!-- Put your HTML HERE -->\n\t<h1>{{appName}}</h1>\n\t",
                         directives: []
                     }), 
                     __metadata('design:paramtypes', [])

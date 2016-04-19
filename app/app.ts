@@ -11,12 +11,24 @@ import {Component} from 'angular2/core';
 	selector: 'main-app',
     template: `
 	<!-- Put your HTML HERE -->
-	<h1>Eat it biatch!</h1>
+	<h1>{{appName}}</h1>
 	`,
 	directives: []
 })
 class AppComponent {
-    
+    appName:string;
+	firebaseUrl: string;
+	messagesRef: Firebase;
+	
+	constructor() {
+		this.appName = "Basic Firebase App"
+		this.firebaseUrl = "https://luminous-inferno-5792.firebaseio.com/test";
+		this.messagesRef = new Firebase(this.firebaseUrl);
+		this.messagesRef.set({
+			name: 'bob',
+			text: 'newString'
+		});
+	}
  }
 
 bootstrap(AppComponent, [HTTP_PROVIDERS, Logger, GoogleApi])
