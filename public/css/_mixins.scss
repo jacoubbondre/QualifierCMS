@@ -1,0 +1,37 @@
+@mixin grow($amount) {
+	transform: scale($amount);
+	-webkit-transform: scale($amount);
+}
+
+@mixin transform-reset {
+	transform: initial;
+	-webkit-transform: initial;
+}
+
+@mixin transitionEaseInOut($time) {
+	-webkit-transition: all $time ease-in-out;
+    -moz-transition: all $time ease-in-out;
+    -o-transition: all $time ease-in-out;
+    transition: all $time ease-in-out;
+}
+
+
+@mixin transition($time) {
+	-webkit-transition: all $time ease;
+    -moz-transition: all $time ease;
+    -o-transition: all $time ease;
+    transition: all $time ease;
+}
+
+@mixin transition-reset() {
+	-webkit-transition: initial;
+    -moz-transition: initial;
+    -o-transition: initial;
+    transition: initial;
+}
+
+@mixin centered-table-cell() {
+	display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}

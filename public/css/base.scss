@@ -1,0 +1,22 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+
+#container, #page{
+    width: 100%;
+}
+
+main-app {
+	@import 'reset.scss';
+	@import 'variables.scss';
+	@import 'mixins.scss';
+	@import 'utils.scss';
+	@import 'animations.scss';
+
+}
+
+@import 'components/browser-specific/ie.scss';
