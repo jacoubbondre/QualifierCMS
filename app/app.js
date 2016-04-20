@@ -34,13 +34,21 @@ System.register(['angular2/platform/browser', 'angular2/http', './services/logge
             AppComponent = (function () {
                 function AppComponent(http) {
                     var _this = this;
-                    http.get('http://findmy.maytag.ca/config/maytag-en_CA.json').subscribe(function (res) {
+                    this.http = http;
+                    this.http.get('http://findmy.maytag.ca/config/maytag-en_CA.json').subscribe(function (res) {
                         _this.dataSnap = res.json();
                         console.log("first = : " + _this.dataSnap);
                         _this.setFire(_this.dataSnap);
                     });
                 }
                 AppComponent.prototype.setFire = function (d) {
+                    var headers = new http_1.Headers();
+                    headers.append('Content-Type', 'application/json');
+                    var tmpStr = 'data=' + (JSON.stringify(d));
+                    this.http.post('save.php', tmpStr)
+                        .subscribe(function (res) {
+                        console.log(res);
+                    }, function () { return console.log('Authentication Complete'); });
                     this.appName = "Basic Firebase App";
                     this.firebaseUrl = "https://luminous-inferno-5792.firebaseio.com/restore";
                     this.messagesRef = new Firebase(this.firebaseUrl);
