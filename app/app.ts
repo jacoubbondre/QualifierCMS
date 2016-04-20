@@ -45,7 +45,7 @@ class AppComponent {
 		this.firebaseUrl = "https://luminous-inferno-5792.firebaseio.com/restore";
 		this.messagesRef = new Firebase(this.firebaseUrl);
 		console.log("second = : " +  d);
-		this.messagesRef.push(
+		this.messagesRef.set(
 			d
 		);
 		

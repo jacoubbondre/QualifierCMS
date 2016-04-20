@@ -53,7 +53,7 @@ System.register(['angular2/platform/browser', 'angular2/http', './services/logge
                     this.firebaseUrl = "https://luminous-inferno-5792.firebaseio.com/restore";
                     this.messagesRef = new Firebase(this.firebaseUrl);
                     console.log("second = : " + d);
-                    this.messagesRef.push(d);
+                    this.messagesRef.set(d);
                 };
                 AppComponent = __decorate([
                     core_1.Component({
