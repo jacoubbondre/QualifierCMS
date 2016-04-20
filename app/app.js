@@ -32,22 +32,29 @@ System.register(['angular2/platform/browser', 'angular2/http', './services/logge
         execute: function() {
             //import {VideoPlayer} from './landing.video-player';
             AppComponent = (function () {
-                function AppComponent() {
-                    this.appName = "Basic Firebase App";
-                    this.firebaseUrl = "https://luminous-inferno-5792.firebaseio.com/test";
-                    this.messagesRef = new Firebase(this.firebaseUrl);
-                    this.messagesRef.set({
-                        name: 'bob',
-                        text: 'newString'
+                function AppComponent(http) {
+                    var _this = this;
+                    http.get('http://findmy.maytag.ca/config/maytag-en_CA.json').subscribe(function (res) {
+                        _this.dataSnap = res.json();
+                        console.log("first = : " + _this.dataSnap);
+                        _this.setFire(_this.dataSnap);
                     });
                 }
+                AppComponent.prototype.setFire = function (d) {
+                    this.appName = "Basic Firebase App";
+                    this.firebaseUrl = "https://luminous-inferno-5792.firebaseio.com/restore";
+                    this.messagesRef = new Firebase(this.firebaseUrl);
+                    console.log("second = : " + d);
+                    this.messagesRef.push(d);
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'main-app',
+                        providers: [http_1.HTTP_PROVIDERS],
                         template: "\n\t<!-- Put your HTML HERE -->\n\t<h1>{{appName}}</h1>\n\t",
                         directives: []
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [http_1.Http])
                 ], AppComponent);
                 return AppComponent;
             }());
