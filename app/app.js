@@ -32,29 +32,8 @@ System.register(['angular2/platform/browser', 'angular2/http', './services/logge
         execute: function() {
             //import {VideoPlayer} from './landing.video-player';
             AppComponent = (function () {
-                function AppComponent(http) {
-                    var _this = this;
-                    this.http = http;
-                    this.http.get('http://findmy.maytag.ca/config/maytag-en_CA.json').subscribe(function (res) {
-                        _this.dataSnap = res.json();
-                        console.log("first = : " + _this.dataSnap);
-                        _this.setFire(_this.dataSnap);
-                    });
+                function AppComponent() {
                 }
-                AppComponent.prototype.setFire = function (d) {
-                    var headers = new http_1.Headers();
-                    headers.append('Content-Type', 'application/json');
-                    var tmpStr = 'data=' + (JSON.stringify(d));
-                    this.http.post('save.php', tmpStr)
-                        .subscribe(function (res) {
-                        console.log(res);
-                    }, function () { return console.log('Authentication Complete'); });
-                    this.appName = "Basic Firebase App";
-                    this.firebaseUrl = "https://luminous-inferno-5792.firebaseio.com/restore";
-                    this.messagesRef = new Firebase(this.firebaseUrl);
-                    console.log("second = : " + d);
-                    this.messagesRef.set(d);
-                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'main-app',
@@ -62,7 +41,7 @@ System.register(['angular2/platform/browser', 'angular2/http', './services/logge
                         template: "\n\t<!-- Put your HTML HERE -->\n\t<h1>{{appName}}</h1>\n\t",
                         directives: []
                     }), 
-                    __metadata('design:paramtypes', [http_1.Http])
+                    __metadata('design:paramtypes', [])
                 ], AppComponent);
                 return AppComponent;
             }());

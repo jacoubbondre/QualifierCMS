@@ -17,7 +17,7 @@ import {Component} from 'angular2/core';
 	directives: []
 })
 class AppComponent {
-	dataSnap:string;
+	/* dataSnap:string;
     appName:string;
 	firebaseUrl: string;
 	messagesRef: Firebase;
@@ -49,7 +49,7 @@ class AppComponent {
 			d
 		);
 		
-	}
+	} */
  }
 
 bootstrap(AppComponent, [HTTP_PROVIDERS, Logger, GoogleApi])
