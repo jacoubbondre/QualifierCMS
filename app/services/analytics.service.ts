@@ -1,16 +1,16 @@
 import {Injectable} from 'angular2/core';
-import {Logger} from './logger.service';
+import {LoggerService} from './logger.service';
 
 declare var ga;
 
 @Injectable()
-export class Analytics {
+export class AnalyticsService {
 	public enabled: boolean
-	private logger: Logger
+	private logger: LoggerService
 	private debug: boolean
 	private bindings
 
-	constructor(logger: Logger) {
+	constructor(logger: LoggerService) {
 		this.logger = logger
 		this.enabled = this.gaObjectExists()
 		this.debug = false

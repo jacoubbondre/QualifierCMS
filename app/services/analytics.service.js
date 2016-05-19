@@ -11,7 +11,7 @@ System.register(['angular2/core', './logger.service'], function(exports_1, conte
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, logger_service_1;
-    var Analytics;
+    var AnalyticsService;
     return {
         setters:[
             function (core_1_1) {
@@ -21,18 +21,18 @@ System.register(['angular2/core', './logger.service'], function(exports_1, conte
                 logger_service_1 = logger_service_1_1;
             }],
         execute: function() {
-            Analytics = (function () {
-                function Analytics(logger) {
+            AnalyticsService = (function () {
+                function AnalyticsService(logger) {
                     this.logger = logger;
                     this.enabled = this.gaObjectExists();
                     this.debug = false;
                     this.bindings = [];
                 }
-                Analytics.prototype.ngAfterViewInit = function () {
+                AnalyticsService.prototype.ngAfterViewInit = function () {
                     if (!this.enabled)
                         this.enabled = this.gaObjectExists();
                 };
-                Analytics.prototype.sendEvent = function (props) {
+                AnalyticsService.prototype.sendEvent = function (props) {
                     this.enabled = this.gaObjectExists();
                     props = this.fillBindings(props);
                     if (this.propsAreEmpty(props)) {
@@ -51,17 +51,17 @@ System.register(['angular2/core', './logger.service'], function(exports_1, conte
                         }
                     }
                 };
-                Analytics.prototype.bind = function (keyword, fn) {
+                AnalyticsService.prototype.bind = function (keyword, fn) {
                     if (typeof fn !== 'function')
                         return;
                     this.bindings.push({ 'keyword': keyword, 'function': fn });
                 };
-                Analytics.prototype.debugMode = function (val) {
+                AnalyticsService.prototype.debugMode = function (val) {
                     if (val)
                         this.logger.log("Analytics: now in debug mode");
                     this.debug = val;
                 };
-                Analytics.prototype.propsAreEmpty = function (props) {
+                AnalyticsService.prototype.propsAreEmpty = function (props) {
                     if (Object.keys(props).length == 1)
                         return true;
                     for (var i in props) {
@@ -72,16 +72,16 @@ System.register(['angular2/core', './logger.service'], function(exports_1, conte
                     }
                     return true;
                 };
-                Analytics.prototype.gaObjectExists = function () {
+                AnalyticsService.prototype.gaObjectExists = function () {
                     return 'ga' in window && typeof window.ga !== 'undefined' && window.ga;
                 };
-                Analytics.prototype.fillBindings = function (arr) {
+                AnalyticsService.prototype.fillBindings = function (arr) {
                     for (var i in arr) {
                         arr[i] = this.fillBinding(arr[i]);
                     }
                     return arr;
                 };
-                Analytics.prototype.fillBinding = function (str) {
+                AnalyticsService.prototype.fillBinding = function (str) {
                     if (!str || typeof str === 'undefined' || !str.length)
                         return false;
                     for (var i in this.bindings) {
@@ -99,13 +99,13 @@ System.register(['angular2/core', './logger.service'], function(exports_1, conte
                     }
                     return str;
                 };
-                Analytics = __decorate([
+                AnalyticsService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [logger_service_1.Logger])
-                ], Analytics);
-                return Analytics;
+                    __metadata('design:paramtypes', [logger_service_1.LoggerService])
+                ], AnalyticsService);
+                return AnalyticsService;
             }());
-            exports_1("Analytics", Analytics);
+            exports_1("AnalyticsService", AnalyticsService);
         }
     }
 });

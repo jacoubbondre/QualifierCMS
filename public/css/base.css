@@ -5,14 +5,19 @@ html, body {
   margin: 0; }
 
 #container, #page {
+  height: 100%;
   width: 100%; }
 
 main-app {
+  width: 100%;
+  height: 100%;
   /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
   /* HTML5 display-role reset for older browsers */ }
+  main-app * {
+    box-sizing: border-box; }
   main-app html, main-app body, main-app div, main-app span, main-app applet, main-app object, main-app iframe, main-app h1, main-app h2, main-app h3, main-app h4, main-app h5, main-app h6, main-app p, main-app blockquote, main-app pre, main-app a, main-app abbr, main-app acronym, main-app address, main-app big, main-app cite, main-app code, main-app del, main-app dfn, main-app em, main-app img, main-app ins, main-app kbd, main-app q, main-app s, main-app samp, main-app small, main-app strike, main-app strong, main-app sub, main-app sup, main-app tt, main-app var, main-app b, main-app u, main-app i, main-app center, main-app dl, main-app dt, main-app dd, main-app ol, main-app ul, main-app li, main-app fieldset, main-app form, main-app label, main-app legend, main-app table, main-app caption, main-app tbody, main-app tfoot, main-app thead, main-app tr, main-app th, main-app td, main-app article, main-app aside, main-app canvas, main-app details, main-app embed, main-app figure, main-app figcaption, main-app footer, main-app header, main-app hgroup, main-app menu, main-app nav, main-app output, main-app ruby, main-app section, main-app summary, main-app time, main-app mark, main-app audio, main-app video {
     margin: 0;
     padding: 0;
@@ -66,3 +71,21 @@ main-app {
     display: block; }
   main-app .selected {
     cursor: default; }
+  main-app basic-data-modifier {
+    height: 100%;
+    width: 100%; }
+    main-app basic-data-modifier textarea {
+      width: 90%;
+      height: 90%;
+      float: right; }
+  main-app basic-data-list {
+    float: left;
+    width: 10%;
+    height: 100%; }
+    main-app basic-data-list ul {
+      width: 100%;
+      height: 100%; }
+    main-app basic-data-list li {
+      height: 20px; }
+    main-app basic-data-list .selected {
+      background-color: #187bea; }

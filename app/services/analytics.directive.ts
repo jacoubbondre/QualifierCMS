@@ -1,6 +1,6 @@
 import {Directive, Injectable, Input, ElementRef} from 'angular2/core';
 import {BrowserDomAdapter} from 'angular2/platform/browser'
-import {Analytics} from './services/analytics.service'
+import {AnalyticsService} from './analytics.service'
 
 @Injectable()
 @Directive({
@@ -14,10 +14,10 @@ export class AnalyticsOn {
 
 	private elRef: ElementRef
 	private el: any
-	private analytics: Analytics
+	private analytics: AnalyticsService
 	private DOM: BrowserDomAdapter;
 
-	constructor(elRef: ElementRef, analytics: Analytics) {
+	constructor(elRef: ElementRef, analytics: AnalyticsService) {
 		this.elRef = elRef
 		this.el = elRef.nativeElement
 		this.analytics = analytics

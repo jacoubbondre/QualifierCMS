@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/platform/browser', './services/analytics.service'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/platform/browser', './analytics.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -71,10 +71,9 @@ System.register(['angular2/core', 'angular2/platform/browser', './services/analy
                     core_1.Directive({
                         selector: '[analyticsOn]'
                     }), 
-                    __metadata('design:paramtypes', [core_1.ElementRef, (typeof (_a = typeof analytics_service_1.Analytics !== 'undefined' && analytics_service_1.Analytics) === 'function' && _a) || Object])
+                    __metadata('design:paramtypes', [core_1.ElementRef, analytics_service_1.AnalyticsService])
                 ], AnalyticsOn);
                 return AnalyticsOn;
-                var _a;
             }());
             exports_1("AnalyticsOn", AnalyticsOn);
         }

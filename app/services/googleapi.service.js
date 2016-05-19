@@ -11,7 +11,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx', './logger.service'
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, http_1, logger_service_1;
-    var GoogleApi;
+    var GoogleApiService;
     return {
         setters:[
             function (core_1_1) {
@@ -25,14 +25,14 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx', './logger.service'
                 logger_service_1 = logger_service_1_1;
             }],
         execute: function() {
-            GoogleApi = (function () {
-                function GoogleApi(http, logger) {
+            GoogleApiService = (function () {
+                function GoogleApiService(http, logger) {
                     this.http = http;
                     this.logger = logger;
                     this.http = http;
                     this.logger = logger;
                 }
-                GoogleApi.prototype.video = function (id, cb) {
+                GoogleApiService.prototype.video = function (id, cb) {
                     var params = {
                         id: id,
                         part: 'snippet',
@@ -42,26 +42,26 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx', './logger.service'
                         .map(function (res) { return res.json(); })
                         .subscribe(function (data) { cb(data, false); }, function (err) { return cb(false, err); });
                 };
-                GoogleApi.prototype.initialize = function (data) {
+                GoogleApiService.prototype.initialize = function (data) {
                     //assumes 1 result
                     data = data.items[0];
                     console.log(data);
                     this.description = data.snippet.description.replace(/\\n/g, '');
                 };
-                GoogleApi.prototype.constructURL = function (url, params) {
+                GoogleApiService.prototype.constructURL = function (url, params) {
                     var r = '';
                     for (var i in params) {
                         r += i + '=' + params[i] + '&';
                     }
                     return url + '?' + r;
                 };
-                GoogleApi = __decorate([
+                GoogleApiService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [http_1.Http, logger_service_1.Logger])
-                ], GoogleApi);
-                return GoogleApi;
+                    __metadata('design:paramtypes', [http_1.Http, logger_service_1.LoggerService])
+                ], GoogleApiService);
+                return GoogleApiService;
             }());
-            exports_1("GoogleApi", GoogleApi);
+            exports_1("GoogleApiService", GoogleApiService);
         }
     }
 });

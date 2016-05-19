@@ -1,4 +1,4 @@
-System.register(['angular2/angular2'], function(exports_1, context_1) {
+System.register(['angular2/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -13,12 +13,12 @@ System.register(['angular2/angular2'], function(exports_1, context_1) {
     var __param = (this && this.__param) || function (paramIndex, decorator) {
         return function (target, key) { decorator(target, key, paramIndex); }
     };
-    var angular2_1;
+    var core_1;
     var ALLOWED_FIREBASE_EVENTS, FirebaseEventPipe;
     return {
         setters:[
-            function (angular2_1_1) {
-                angular2_1 = angular2_1_1;
+            function (core_1_1) {
+                core_1 = core_1_1;
             }],
         execute: function() {
             (function (ALLOWED_FIREBASE_EVENTS) {
@@ -58,9 +58,8 @@ System.register(['angular2/angular2'], function(exports_1, context_1) {
                     }
                     else {
                         this._latestReturnedValue = this._latestValue;
-                        return angular2_1.WrappedValue.wrap(this._latestReturnedValue);
+                        return core_1.WrappedValue.wrap(this._latestReturnedValue);
                     }
-                    return null;
                 };
                 FirebaseEventPipe.prototype.onDestroy = function () {
                     if (this._fbRef) {
@@ -78,15 +77,14 @@ System.register(['angular2/angular2'], function(exports_1, context_1) {
                     throw "Not a valid event to listen to: " + args[0] + ".\n      Please provide a valid event, such as \"child_added\", by adding it as an\n      argument to the pipe: \"value | firebase:child_added\".\n      See https://www.firebase.com/docs/web/api/query/on.html for supported events.";
                 };
                 FirebaseEventPipe = __decorate([
-                    angular2_1.Pipe({
+                    core_1.Pipe({
                         name: 'firebaseevent',
                         pure: false
                     }),
-                    __param(0, angular2_1.Inject(angular2_1.ChangeDetectorRef)), 
-                    __metadata('design:paramtypes', [(typeof (_a = typeof angular2_1.ChangeDetectorRef !== 'undefined' && angular2_1.ChangeDetectorRef) === 'function' && _a) || Object])
+                    __param(0, core_1.Inject(core_1.ChangeDetectorRef)), 
+                    __metadata('design:paramtypes', [core_1.ChangeDetectorRef])
                 ], FirebaseEventPipe);
                 return FirebaseEventPipe;
-                var _a;
             }());
             exports_1("FirebaseEventPipe", FirebaseEventPipe);
         }

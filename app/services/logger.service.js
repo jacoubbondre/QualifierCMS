@@ -11,29 +11,29 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var Logger;
+    var LoggerService;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            Logger = (function () {
-                function Logger() {
+            LoggerService = (function () {
+                function LoggerService() {
                 }
-                Logger.prototype.log = function (s) {
+                LoggerService.prototype.log = function (s) {
                     console.log(s);
                 };
-                Logger.prototype.error = function (s) {
+                LoggerService.prototype.error = function (s) {
                     console.error(s);
                 };
-                Logger = __decorate([
+                LoggerService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [])
-                ], Logger);
-                return Logger;
+                ], LoggerService);
+                return LoggerService;
             }());
-            exports_1("Logger", Logger);
+            exports_1("LoggerService", LoggerService);
         }
     }
 });

@@ -1,4 +1,5 @@
-System.register(['angular2/platform/browser', 'angular2/http', './services/logger.service', './services/googleapi.service', 'angular2/core'], function(exports_1, context_1) {
+///<reference path="../node_modules/angular2/typings/browser.d.ts"/>
+System.register(['angular2/platform/browser', 'angular2/http', './services/logger.service', './services/firebase.service', './services/store.service', 'angular2/core', './basicDataModifier.component', './basicDataList.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +11,7 @@ System.register(['angular2/platform/browser', 'angular2/http', './services/logge
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var browser_1, http_1, logger_service_1, googleapi_service_1, core_1;
+    var browser_1, http_1, logger_service_1, firebase_service_1, store_service_1, core_1, basicDataModifier_component_1, basicDataList_component_1;
     var AppComponent;
     return {
         setters:[
@@ -23,50 +24,46 @@ System.register(['angular2/platform/browser', 'angular2/http', './services/logge
             function (logger_service_1_1) {
                 logger_service_1 = logger_service_1_1;
             },
-            function (googleapi_service_1_1) {
-                googleapi_service_1 = googleapi_service_1_1;
+            function (firebase_service_1_1) {
+                firebase_service_1 = firebase_service_1_1;
+            },
+            function (store_service_1_1) {
+                store_service_1 = store_service_1_1;
             },
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (basicDataModifier_component_1_1) {
+                basicDataModifier_component_1 = basicDataModifier_component_1_1;
+            },
+            function (basicDataList_component_1_1) {
+                basicDataList_component_1 = basicDataList_component_1_1;
             }],
         execute: function() {
-            //import {VideoPlayer} from './landing.video-player';
             AppComponent = (function () {
-                function AppComponent(http) {
-                    var _this = this;
+                function AppComponent(firebase, store, http) {
+                    this.firebase = firebase;
+                    this.store = store;
                     this.http = http;
-                    this.http.get('http://findmy.maytag.ca/config/maytag-en_CA.json').subscribe(function (res) {
-                        _this.dataSnap = res.json();
-                        console.log("first = : " + _this.dataSnap);
-                        _this.setFire(_this.dataSnap);
-                    });
                 }
-                AppComponent.prototype.setFire = function (d) {
-                    var headers = new http_1.Headers();
-                    headers.append('Content-Type', 'application/json');
-                    var tmpStr = 'data=' + (JSON.stringify(d));
-                    this.http.post('save.php', tmpStr)
-                        .subscribe(function (res) {
-                        console.log(res);
-                    }, function () { return console.log('Authentication Complete'); });
-                    this.appName = "Basic Firebase App";
-                    this.firebaseUrl = "https://luminous-inferno-5792.firebaseio.com/restore";
-                    this.messagesRef = new Firebase(this.firebaseUrl);
-                    console.log("second = : " + d);
-                    this.messagesRef.set(d);
+                AppComponent.prototype.ngAfterViewInit = function () {
+                    var _this = this;
+                    this.http.get('http://findmy.maytag.ca/config/maytag-en_CA.json').subscribe(function (res) {
+                        _this.firebase.saveDefaultConfig(res.json());
+                    });
                 };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'main-app',
                         providers: [http_1.HTTP_PROVIDERS],
-                        template: "\n\t<!-- Put your HTML HERE -->\n\t<h1>{{appName}}</h1>\n\t",
-                        directives: []
+                        directives: [basicDataModifier_component_1.BasicDataModifierComponent, basicDataList_component_1.BasicDataListComponent],
+                        template: "\n    \t<basic-data-list></basic-data-list>\n\t\t<basic-data-modifier></basic-data-modifier>\n\t"
                     }), 
-                    __metadata('design:paramtypes', [http_1.Http])
+                    __metadata('design:paramtypes', [firebase_service_1.FirebaseService, store_service_1.StoreService, http_1.Http])
                 ], AppComponent);
                 return AppComponent;
             }());
-            browser_1.bootstrap(AppComponent, [http_1.HTTP_PROVIDERS, logger_service_1.Logger, googleapi_service_1.GoogleApi]);
+            browser_1.bootstrap(AppComponent, [http_1.HTTP_PROVIDERS, logger_service_1.LoggerService, firebase_service_1.FirebaseService, store_service_1.StoreService]);
         }
     }
 });

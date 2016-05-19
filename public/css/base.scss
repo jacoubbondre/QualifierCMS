@@ -7,16 +7,26 @@ html, body {
 
 
 #container, #page{
+	height: 100%;
     width: 100%;
 }
 
 main-app {
+	width: 100%;
+	height: 100%;
+
+	* {
+		box-sizing: border-box;
+	}
+
 	@import 'reset.scss';
 	@import 'variables.scss';
 	@import 'mixins.scss';
 	@import 'utils.scss';
 	@import 'animations.scss';
 
+	@import 'components/basicDataModifier.scss';
+	@import 'components/basicDataList.scss';
 }
 
 @import 'components/browser-specific/ie.scss';

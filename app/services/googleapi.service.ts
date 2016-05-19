@@ -2,13 +2,13 @@
 import {Injectable} from 'angular2/core';
 import {Http, HTTP_PROVIDERS, Response} from 'angular2/http';
 import 'rxjs/Rx'
-import {Logger} from './logger.service'
+import {LoggerService} from './logger.service'
 
 @Injectable()
-export class GoogleApi {
+export class GoogleApiService {
 	public description: string
 
-	constructor(private http: Http, private logger: Logger) {
+	constructor(private http: Http, private logger: LoggerService) {
 		this.http = http
 		this.logger = logger
 	}
