@@ -28,6 +28,8 @@ System.register(['./services/store.service', 'angular2/core'], function(exports_
                     this.selectedItem = 0;
                     this._onConfigsDataChanged = this.store.onConfigsChange
                         .subscribe(function (configs) { return _this.onConfigsChange(configs); });
+                    this._onConfigChanged = this.store.onConfigChange
+                        .subscribe(function (config) { return _this.onConfigChange(config); });
                 }
                 //outputs
                 //methods
@@ -40,15 +42,24 @@ System.register(['./services/store.service', 'angular2/core'], function(exports_
                         tempArr.push(temp);
                     }
                     this.configs = tempArr;
+                    this.ids = Object.keys(configs);
                 };
-                BasicDataListComponent.prototype.selectItem = function (index, config) {
+                BasicDataListComponent.prototype.onConfigChange = function (config) {
+                    if (this.ids && config.id) {
+                        var index = this.ids.indexOf(config.id);
+                        this.selectItem(index, undefined, false);
+                    }
+                };
+                BasicDataListComponent.prototype.selectItem = function (index, config, propagate) {
+                    console.log('select', index, config, propagate);
                     this.selectedItem = index;
-                    this.store.setConfigById(config.id);
+                    if (propagate)
+                        this.store.setConfigById(config.id);
                 };
                 BasicDataListComponent = __decorate([
                     core_1.Component({
                         selector: 'basic-data-list',
-                        template: "\n    \t<ul>\n    \t\t<li *ngFor=\"#config of configs; #i = index\" class=\"{{i == selectedItem ? 'selected' : ''}}\" (click)=\"selectItem(i,config)\">\n    \t\t\t{{config.updated}}\n    \t\t</li>\n    \t</ul>\n    \t<button class=\"load\">Load</button>\n\t"
+                        template: "\n    \t<ul>\n    \t\t<li *ngFor=\"#config of configs; #i = index\" class=\"{{i == selectedItem ? 'selected' : ''}}\" (click)=\"selectItem(i,config,true)\">\n    \t\t\t{{config.id}}\n    \t\t</li>\n    \t</ul>\n    \t<button class=\"load\">Load</button>\n\t"
                     }), 
                     __metadata('design:paramtypes', [store_service_1.StoreService])
                 ], BasicDataListComponent);

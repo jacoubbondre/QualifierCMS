@@ -62,6 +62,7 @@ System.register(['angular2/core', './logger.service', './firebase.service'], fun
                         this.firebase.saveDefaultConfig(config);
                 };
                 StoreService.prototype.setConfig = function (data, id) {
+                    console.log('set config', data);
                     this.config = data;
                     this.id = id;
                     this.onConfigChange.emit(this.config);
@@ -71,7 +72,7 @@ System.register(['angular2/core', './logger.service', './firebase.service'], fun
                 };
                 StoreService.prototype.newConfig = function () {
                     this.setConfig({
-                        data: this.defaultConfig,
+                        data: this.defaultConfig.data,
                         created: undefined,
                         updated: undefined,
                         id: undefined
@@ -81,6 +82,7 @@ System.register(['angular2/core', './logger.service', './firebase.service'], fun
                     if (this.configs && id in this.configs) {
                         this.config = this.configs[id];
                         this.id = id;
+                        this.onConfigChange.emit(this.config);
                     }
                 };
                 StoreService.prototype.changeConfig = function (id) {

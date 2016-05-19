@@ -7,8 +7,8 @@ import { NgForm } from 'angular2/common'
 	selector: 'basic-data-list',
     template: `
     	<ul>
-    		<li *ngFor="#config of configs; #i = index" class="{{i == selectedItem ? 'selected' : ''}}" (click)="selectItem(i,config)">
-    			{{config.updated}}
+    		<li *ngFor="#config of configs; #i = index" class="{{i == selectedItem ? 'selected' : ''}}" (click)="selectItem(i,config,true)">
+    			{{config.id}}
     		</li>
     	</ul>
     	<button class="load">Load</button>
@@ -17,16 +17,21 @@ import { NgForm } from 'angular2/common'
 export class BasicDataListComponent {
 	private text
 	private configs
+	private ids
 	private selectedItem
 
 	constructor(private store: StoreService) {
 		this.selectedItem = 0
 		this._onConfigsDataChanged = this.store.onConfigsChange
 			.subscribe(configs => this.onConfigsChange(configs))
+
+		this._onConfigChanged = this.store.onConfigChange
+			.subscribe(config => this.onConfigChange(config))
 	}
 
 	//inputs
 	private _onConfigsDataChanged
+	private _onConfigChanged
 
 	//outputs
 
@@ -42,10 +47,19 @@ export class BasicDataListComponent {
 		}
 
 		this.configs = tempArr
+		this.ids = Object.keys(configs)
 	}
 
-	selectItem(index, config) {
+	onConfigChange(config) {
+		if (this.ids && config.id) {
+			let index = this.ids.indexOf(config.id)
+			this.selectItem(index, undefined, false)
+		}
+	}
+
+	selectItem(index: number, config: any, propagate: boolean) {
+		console.log('select', index, config, propagate)
 		this.selectedItem = index
-		this.store.setConfigById(config.id)
+		if (propagate) this.store.setConfigById(config.id)
 	}
 }

@@ -52,6 +52,7 @@ export class StoreService {
 	}
 
 	setConfig(data, id) {
+		console.log('set config', data)
 		this.config = data
 		this.id = id
 		this.onConfigChange.emit(this.config)
@@ -63,7 +64,7 @@ export class StoreService {
 
 	newConfig() {
 		this.setConfig({
-			data: this.defaultConfig,
+			data: this.defaultConfig.data,
 			created: undefined,
 			updated: undefined,
 			id: undefined
@@ -74,6 +75,7 @@ export class StoreService {
 		if (this.configs && id in this.configs) {
 			this.config = this.configs[id]
 			this.id = id
+			this.onConfigChange.emit(this.config)
 		}
 	}
 
