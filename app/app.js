@@ -1,4 +1,4 @@
-System.register(['angular2/platform/browser', 'angular2/http', './services/logger.service', './services/googleapi.service', 'angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/platform/browser', 'angular2/http', './services/logger.service', './services/googleapi.service', 'angular2/core', './question.edit.single.ans'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/platform/browser', 'angular2/http', './services/logge
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var browser_1, http_1, logger_service_1, googleapi_service_1, core_1;
+    var browser_1, http_1, logger_service_1, googleapi_service_1, core_1, question_edit_single_ans_1;
     var AppComponent;
     return {
         setters:[
@@ -28,9 +28,11 @@ System.register(['angular2/platform/browser', 'angular2/http', './services/logge
             },
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (question_edit_single_ans_1_1) {
+                question_edit_single_ans_1 = question_edit_single_ans_1_1;
             }],
         execute: function() {
-            //import {VideoPlayer} from './landing.video-player';
             AppComponent = (function () {
                 function AppComponent() {
                 }
@@ -38,8 +40,8 @@ System.register(['angular2/platform/browser', 'angular2/http', './services/logge
                     core_1.Component({
                         selector: 'main-app',
                         providers: [http_1.HTTP_PROVIDERS],
-                        template: "\n\t<!-- Put your HTML HERE -->\n\t<h1>{{appName}}</h1>\n\t",
-                        directives: []
+                        template: "\n\t<!-- Put your HTML HERE -->\n\t<question-single-answer-edit></question-single-answer-edit>\n\t",
+                        directives: [question_edit_single_ans_1.SingleAnswerEdit]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

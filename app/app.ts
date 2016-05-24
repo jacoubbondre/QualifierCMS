@@ -5,18 +5,19 @@ import {Logger} from './services/logger.service';
 import {GoogleApi} from './services/googleapi.service';
 import {Component} from 'angular2/core';
 
-//import {VideoPlayer} from './landing.video-player';
+import {SingleAnswerEdit} from './question.edit.single.ans';
 
 @Component({
 	selector: 'main-app',
 	providers: [HTTP_PROVIDERS],
     template: `
 	<!-- Put your HTML HERE -->
-	<h1>{{appName}}</h1>
+	<question-single-answer-edit></question-single-answer-edit>
 	`,
-	directives: []
+	directives: [SingleAnswerEdit]
 })
 class AppComponent {
+	
 	/* dataSnap:string;
     appName:string;
 	firebaseUrl: string;
