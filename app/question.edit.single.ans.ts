@@ -92,12 +92,13 @@ export class SingleAnswerEdit {
     private ngAfterViewInit() {
         Materialize.updateTextFields();
         $('select').material_select();
-        $( ".sortable" ).sortable();
+        $( ".sortable" ).sortable({});
         $( ".sortable" ).disableSelection();
         
         $('#line01').mouseup(function(){
-            console.log($('#line01').index());
+            setTimeout(function(){console.log($('#line01').index())},500)
         });
-   }
+        
+    }
 	
 }
