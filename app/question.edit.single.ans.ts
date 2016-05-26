@@ -48,6 +48,15 @@ declare var Materialize;
       </div>
     </form>
   </div>
+  <div class="row">
+  <ul class="sortable">
+    <li>Line01</li>
+    <li>Line02</li>
+    <li>Line03</li>
+    <li>Line04</li>
+    <li>Line05</li>
+  </ul>
+  </div>
   </div>
     `,
     directives: []
@@ -57,6 +66,8 @@ export class SingleAnswerEdit {
     private ngAfterViewInit() {
         Materialize.updateTextFields();
         $('select').material_select();
+        $( ".sortable" ).sortable();
+        $( ".sortable" ).disableSelection();
    }
 	
 }
