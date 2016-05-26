@@ -46,17 +46,43 @@ declare var Materialize;
     <label>What question category does this question scor against?</label>
   </div>
       </div>
-    </form>
-  </div>
-  <div class="row">
+      <div class="row">
   <ul class="sortable">
-    <li>Line01</li>
-    <li>Line02</li>
-    <li>Line03</li>
-    <li>Line04</li>
-    <li>Line05</li>
+    <li id="line01">
+        <div class="card-panel teal">
+          <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+          </span>
+        </div></li>
+    <li>
+        <div class="card-panel teal">
+          <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+          </span>
+        </div></li>
+        <li>
+        <div class="card-panel teal">
+          <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+          </span>
+        </div></li>
+        <li>
+        <div class="card-panel teal">
+          <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+          </span>
+        </div></li>
+        <li>
+        <div class="card-panel teal">
+          <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+          </span>
+        </div></li>
   </ul>
   </div>
+    </form>
+  </div>
+  
   </div>
     `,
     directives: []
@@ -68,6 +94,10 @@ export class SingleAnswerEdit {
         $('select').material_select();
         $( ".sortable" ).sortable();
         $( ".sortable" ).disableSelection();
+        
+        $('#line01').mouseup(function(){
+            console.log($('#line01').index());
+        });
    }
 	
 }
