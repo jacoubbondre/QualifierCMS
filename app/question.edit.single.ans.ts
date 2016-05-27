@@ -1,45 +1,13 @@
 import {Component, Input, Inject} from 'angular2/core'
+import {GlobalNav} from './global.navigation'
 
 declare var Materialize;
 
 @Component({
     selector: 'question-single-answer-edit',
     template: `
-    <div class="row">
-    <nav>
-    <ul id="slide-out" class="side-nav">
-      <li><a href="#!">First Sidebar Link</a></li>
-      <li><a href="#!">Second Sidebar Link</a></li>
-      <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-          <li>
-            <a class="collapsible-header">Dropdown<i class="mdi-navigation-arrow-drop-down"></i></a>
-            <div class="collapsible-body">
-              <ul>
-                <li><a href="#!">First</a></li>
-                <li><a href="#!">Second</a></li>
-                <li><a href="#!">Third</a></li>
-                <li><a href="#!">Fourth</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </li>
-    </ul>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="#!">First Sidebar Link</a></li>
-      <li><a href="#!">Second Sidebar Link</a></li>
-      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
-      <ul id='dropdown1' class='dropdown-content'>
-        <li><a href="#!">First</a></li>
-        <li><a href="#!">Second</a></li>
-        <li><a href="#!">Third</a></li>
-        <li><a href="#!">Fourth</a></li>
-      </ul>
-    </ul>
-    <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu">hello</i></a>
-</nav>
-  </div>
+    <div class="container">
+    <global-nav></global-nav>
   <div class="row">
     <form class="col s12">
     <p>What would you like to edit</p>
@@ -102,8 +70,9 @@ declare var Materialize;
   </div>
     </form>
   </div>
+  </div>
     `,
-    directives: []
+    directives: [GlobalNav]
 })
 export class SingleAnswerEdit {
     
@@ -116,13 +85,6 @@ export class SingleAnswerEdit {
         $('#line01').mouseup(function(){
             setTimeout(function(){console.log($('#line01').index())},500)
         });
-        $('.button-collapse').sideNav('show');
-        $('.button-collapse').sideNav({
-          menuWidth: 300, // Default is 240
-          edge: 'left', // Choose the horizontal origin
-          closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-        }
-      );
     }
 	
 }
