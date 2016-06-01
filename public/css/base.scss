@@ -19,7 +19,6 @@ main-app {
 		box-sizing: border-box;
 	}
 
-	@import 'reset.scss';
 	@import 'variables.scss';
 	@import 'mixins.scss';
 	@import 'utils.scss';
@@ -27,6 +26,7 @@ main-app {
 
 	@import 'components/basicDataModifier.scss';
 	@import 'components/basicDataList.scss';
+	@import 'components/ui-category-listitem.scss';
 }
 
 @import 'components/browser-specific/ie.scss';

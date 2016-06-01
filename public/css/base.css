@@ -10,61 +10,9 @@ html, body {
 
 main-app {
   width: 100%;
-  height: 100%;
-  /* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-  /* HTML5 display-role reset for older browsers */ }
+  height: 100%; }
   main-app * {
     box-sizing: border-box; }
-  main-app html, main-app body, main-app div, main-app span, main-app applet, main-app object, main-app iframe, main-app h1, main-app h2, main-app h3, main-app h4, main-app h5, main-app h6, main-app p, main-app blockquote, main-app pre, main-app a, main-app abbr, main-app acronym, main-app address, main-app big, main-app cite, main-app code, main-app del, main-app dfn, main-app em, main-app img, main-app ins, main-app kbd, main-app q, main-app s, main-app samp, main-app small, main-app strike, main-app strong, main-app sub, main-app sup, main-app tt, main-app var, main-app b, main-app u, main-app i, main-app center, main-app dl, main-app dt, main-app dd, main-app ol, main-app ul, main-app li, main-app fieldset, main-app form, main-app label, main-app legend, main-app table, main-app caption, main-app tbody, main-app tfoot, main-app thead, main-app tr, main-app th, main-app td, main-app article, main-app aside, main-app canvas, main-app details, main-app embed, main-app figure, main-app figcaption, main-app footer, main-app header, main-app hgroup, main-app menu, main-app nav, main-app output, main-app ruby, main-app section, main-app summary, main-app time, main-app mark, main-app audio, main-app video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline; }
-  main-app h1 {
-    font-size: 2em; }
-  main-app h2 {
-    font-size: 1.5em; }
-  main-app h3 {
-    font-size: 1.17em; }
-  main-app h4 {
-    font-size: 1.12em; }
-  main-app h5 {
-    font-size: .83em; }
-  main-app h6 {
-    font-size: .75em; }
-  main-app article, main-app aside, main-app details, main-app figcaption, main-app figure, main-app footer, main-app header, main-app hgroup, main-app menu, main-app nav, main-app section {
-    display: block; }
-  main-app body {
-    line-height: 1; }
-  main-app ol, main-app ul {
-    list-style: none; }
-  main-app blockquote, main-app q {
-    quotes: none; }
-  main-app blockquote:before, main-app blockquote:after {
-    content: '';
-    content: none; }
-  main-app q:before, main-app q:after {
-    content: '';
-    content: none; }
-  main-app table {
-    border-collapse: collapse;
-    border-spacing: 0; }
-  main-app a {
-    text-decoration: none; }
-  main-app sub, main-app sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline; }
-  main-app sup {
-    top: -0.5em; }
-  main-app sub {
-    bottom: -0.25em; }
   main-app .hide {
     display: none; }
   main-app .show {
@@ -89,3 +37,10 @@ main-app {
       height: 20px; }
     main-app basic-data-list .selected {
       background-color: #187bea; }
+  main-app ui-category-list-item {
+    width: 100%;
+    height: 100%; }
+    main-app ui-category-list-item .move-icon {
+      width: 30px; }
+    main-app ui-category-list-item .subcategory, main-app ui-category-list-item .title {
+      padding-left: 50px; }

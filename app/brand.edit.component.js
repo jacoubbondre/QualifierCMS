@@ -8,38 +8,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const store_service_1 = require('./services/store.service');
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 const core_1 = require('@angular/core');
-let BasicDataModifierComponent = class BasicDataModifierComponent {
+const ui_category_listcontainer_component_1 = require('./ui.category.listcontainer.component');
+const store_service_1 = require('./services/store.service');
+let BrandEdit = class BrandEdit {
     constructor(store) {
         this.store = store;
-        this._onDataChanged = this.store.onConfigChange
-            .subscribe(data => this.onConfigChange(data));
+        this._onConfigChanged = this.store.onConfigChange
+            .subscribe(config => this.onConfigChange(config));
     }
-    onSave() {
-        this.store.setConfigData(JSON.parse(this.text));
-        this.store.saveConfig();
-    }
-    onNew() {
-        this.store.newConfig();
-    }
-    onConfigChange(data) {
-        this.text = JSON.stringify(data.data, null, 4);
-        console.log('set config', data);
-        this.id = data.id;
+    onConfigChange(config) {
+        this.brand = config.getBrand();
     }
 };
-BasicDataModifierComponent = __decorate([
+BrandEdit = __decorate([
     core_1.Component({
-        selector: 'basic-data-modifier',
+        selector: 'brand-edit',
         template: `
-    	<form>
-			<textarea type="textbox" [(ngModel)]="text"></textarea>
-			<button class="submit" (click)="onSave()">Save</button>
-			<button class="new" (click)="onNew()">New</button>
-		</form>
-	`
-    }), 
+    <div class="row">
+      <h4>{{brand}} - brand</h4>
+      <span>What would you like to edit?</span>
+    </div>
+    <ui-category-list-container></ui-category-list-container>
+    `,
+        directives: [ui_category_listcontainer_component_1.UICategoryListContainer]
+    }),
+    __param(0, core_1.Inject(store_service_1.StoreService)), 
     __metadata('design:paramtypes', [store_service_1.StoreService])
-], BasicDataModifierComponent);
-exports.BasicDataModifierComponent = BasicDataModifierComponent;
+], BrandEdit);
+exports.BrandEdit = BrandEdit;

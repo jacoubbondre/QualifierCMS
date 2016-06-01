@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, Inject, Pipe, View, WrappedValue, bind} from 'angular2/core';
+import {ChangeDetectorRef, Component, Inject, Pipe, WrappedValue, bind} from '@angular/core';
 
 export enum ALLOWED_FIREBASE_EVENTS {value, child_added};
 

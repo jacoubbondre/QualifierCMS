@@ -1,5 +1,5 @@
-import {Injectable, EventEmitter} from 'angular2/core'
-import {Http, Headers} from 'angular2/http'
+import {Injectable, EventEmitter} from '@angular/core'
+import {Http, Headers} from '@angular/http'
 import {LoggerService} from './logger.service'
 
 @Injectable()

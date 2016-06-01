@@ -1,5 +1,5 @@
-import {Directive, Injectable, Input, ElementRef} from 'angular2/core';
-import {BrowserDomAdapter} from 'angular2/platform/browser'
+import {Directive, Injectable, Input, ElementRef} from '@angular/core'
+import {BrowserDomAdapter} from '@angular/platform-browser/src/browser/browser_adapter'
 import {AnalyticsService} from './analytics.service'
 
 @Injectable()

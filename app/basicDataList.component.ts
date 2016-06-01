@@ -1,13 +1,13 @@
 import {LoggerService} from './services/logger.service'
 import {StoreService} from './services/store.service'
-import {Component} from 'angular2/core'
-import { NgForm } from 'angular2/common'
+import {Component} from '@angular/core'
+import { NgForm } from '@angular/common'
 
 @Component({
 	selector: 'basic-data-list',
     template: `
     	<ul>
-    		<li *ngFor="#config of configs; #i = index" class="{{i == selectedItem ? 'selected' : ''}}" (click)="selectItem(i,config,true)">
+    		<li *ngFor="let config of configs; let i = index" class="{{i == selectedItem ? 'selected' : ''}}" (click)="selectItem(i,config,true)">
     			{{config.id}}
     		</li>
     	</ul>

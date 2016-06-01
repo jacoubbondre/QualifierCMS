@@ -3392,12 +3392,12 @@ small {
     border-top: 1px solid rgba(160, 160, 160, 0.2);
     padding: 20px;
     z-index: 2; }
-    .card .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {
+    .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
       color: #ffab40;
       margin-right: 20px;
       transition: color .3s ease;
       text-transform: uppercase; }
-      .card .card-action a:not(.btn):not(.btn-large):not(.btn-floating):hover {
+      .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover {
         color: #ffd8a6; }
     .card .card-action + .card-reveal {
       z-index: 1;
@@ -3567,8 +3567,7 @@ small {
 .btn.disabled, .disabled.btn-large,
 .btn-floating.disabled,
 .btn-large.disabled,
-.btn:disabled
-.btn-large:disabled, .btn-large:disabled .btn-large:disabled,
+.btn:disabled .btn-large:disabled, .btn-large:disabled .btn-large:disabled,
 .btn-floating:disabled {
   background-color: #DFDFDF !important;
   box-shadow: none;
@@ -3577,15 +3576,13 @@ small {
   .btn.disabled *, .disabled.btn-large *,
   .btn-floating.disabled *,
   .btn-large.disabled *,
-  .btn:disabled
-.btn-large:disabled *, .btn-large:disabled .btn-large:disabled *,
+  .btn:disabled .btn-large:disabled *, .btn-large:disabled .btn-large:disabled *,
   .btn-floating:disabled * {
     pointer-events: none; }
   .btn.disabled:hover, .disabled.btn-large:hover,
   .btn-floating.disabled:hover,
   .btn-large.disabled:hover,
-  .btn:disabled
-.btn-large:disabled:hover, .btn-large:disabled .btn-large:disabled:hover,
+  .btn:disabled .btn-large:disabled:hover, .btn-large:disabled .btn-large:disabled:hover,
   .btn-floating:disabled:hover {
     background-color: #DFDFDF !important;
     color: #9F9F9F !important; }

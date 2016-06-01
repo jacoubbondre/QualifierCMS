@@ -1,7 +1,7 @@
 import {LoggerService} from './services/logger.service'
 import {StoreService} from './services/store.service'
-import {Component} from 'angular2/core'
-import { NgForm } from 'angular2/common'
+import {Component} from '@angular/core'
+import { NgForm } from '@angular/common'
 
 @Component({
 	selector: 'basic-data-modifier',
