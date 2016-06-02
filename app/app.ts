@@ -15,26 +15,25 @@ import {QuestionEdit} from './question.edit.component'
 @Component({
 	selector: 'main-app',
 	providers: [HTTP_PROVIDERS],
-	directives: [UINavbar, ROUTER_DIRECTIVES],
+	directives: [UINavbar, ROUTER_DIRECTIVES, BrandEdit, CategoryEdit, QuestionEdit],
     template: `
     	<ui-navbar></ui-navbar>
     	<router-outlet></router-outlet>
 	`
 })
 @RouteConfig([
-	{ path: '/', component: BrandEdit, name: 'Home', useAsDefault: true },
-	{ path: '/category/:category', component: BrandEdit, name: 'Category' },
-	{ path: '/question/:question', component: QuestionEdit, name: 'Question' }
+	{ path: '/', component: BrandEdit, name: 'BrandEdit', useAsDefault: true },
+	{ path: '/edit/:category', component: CategoryEdit, name: 'EditCategory' },
+	{ path: '/edit/:category/:question', component: QuestionEdit, name: 'EditQuestion' }
 ])
 class AppComponent {
 	private _onConfigChanged
 
 	constructor(
-		@Inject(forwardRef(() => FirebaseService)) private firebase: FirebaseService,
-		@Inject(forwardRef(() => StoreService)) private store: StoreService,
-		@Inject(forwardRef(() => Http)) private http: Http,
-		@Inject(forwardRef(() => Router)) private router: Router) {
-
+		private firebase: FirebaseService,
+		private store: StoreService,
+		private http: Http,
+		private router: Router) {
 	}
 
 	ngOnInit() {

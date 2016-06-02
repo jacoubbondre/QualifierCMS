@@ -6,49 +6,28 @@ declare var Materialize;
 @Component({
   selector: 'ui-category-list-item',
   template: `
-      <i class="material-icons move-icon" *ngIf="movable">menu</i>
-      <div>{{data.category}}</div>
-
-      <div class="title" *ngIf="!!data.titles && data.titles.length">
-        <div *ngFor="let title of data.titles">
-          <i class="material-icons move-icon" *ngIf="movable">menu</i>
-          <div>{{title}}</div>
-        </div>
-      </div>
-
-      <div class="subcategory" *ngIf="!!data.subcategories && data.subcategories.length">
-        <div *ngFor="let subcategory of data.subcategories; let i = index">
-          <a href="#" (click)="navigateToCategory(data.subcategories[i].category)">
-            <div>
-              <i class="material-icons move-icon" *ngIf="movable">menu</i>
-              <div class="category">{{subcategory.category}}</div>
-            </div>
-          </a>
-        </div>
+      <div class="category-container">
+        <div class="icon"><i class="material-icons move-icon" *ngIf="movable">menu</i></div>
+        <div class="title">{{title}}</div>
+        <a href="#" [routerLink]="['/EditQuestion', {category: category, question: title}]">
+          <div class="icon"><i class="material-icons edit-icon" *ngIf="editable">edit</i></div>
+        </a>
       </div>
     `,
   directives: [ROUTER_DIRECTIVES]
 })
 export class UICategoryListItem {
-  @Input() data
+  @Input() title
+  @Input() category
   private movable
+  private editable
 
-  constructor( @Inject(forwardRef(() => Router)) private router: Router) {
+  constructor( private router: Router) {
     this.movable = true
+    this.editable = true
   }
 
   private ngAfterViewInit() {
     Materialize.updateTextFields();
-  }
-
-
-
-  ngOnChanges(changes) {
-    console.log(changes.data.currentValue)
-  }
-
-  private navigateToCategory(category: string) {
-    console.log(category)
-    this.router.navigate(['Category', {category: category}])
   }
 }

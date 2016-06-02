@@ -86,6 +86,9 @@ let StoreService = class StoreService {
     getConfigs() {
         return this.configs;
     }
+    preview() {
+        window.open('http://localhost/qualifier-preview/build', '_blank');
+    }
 };
 StoreService = __decorate([
     core_1.Injectable(), 
@@ -107,6 +110,9 @@ class Config {
     getData() { return this.config.data; }
     setQuestions(questions) { this.config.questions = questions; }
     getQuestions() { return this.config.questions; }
+    getQuestionsByCategory(category) { return this._parseQuestions(category); }
+    getQuestionByCategoryName(category, name) { return this._parseQuestion(category, name); }
+    setQuestionByCategoryName(category, name, data) { this._setQuestion(category, name, data); }
     setQuestionByName(name, question) { if (name in this.config.questions)
         this.config.questions[name] = question; }
     getQuestionByName(name) { return name in this.config.questions ? this.config.questions[name] : false; }
@@ -119,6 +125,62 @@ class Config {
     setBrand(brand) { if (brand)
         this.config.data.brand = brand; }
     getCategories() { return this.categories; }
+    _parseQuestion(cat, tit) {
+        let question;
+        for (var str in this.config.data.questions) {
+            let arr = str.split(" - ");
+            let category = arr[0];
+            let subcategory, title;
+            if (arr.length > 2) {
+                subcategory = arr[1];
+                title = arr[2];
+            }
+            else {
+                title = arr[1];
+            }
+            if (((subcategory && subcategory.indexOf(cat) > -1) || category.indexOf(cat) > -1) && title.indexOf(tit) > -1) {
+                question = this.config.data.questions[str];
+                break;
+            }
+        }
+        return question ? question : false;
+    }
+    _setQuestion(cat, tit, data) {
+        for (var str in this.config.data.questions) {
+            let arr = str.split(" - ");
+            let category = arr[0];
+            let subcategory, title;
+            if (arr.length > 2) {
+                subcategory = arr[1];
+                title = arr[2];
+            }
+            else {
+                title = arr[1];
+            }
+            if (((subcategory && subcategory.indexOf(cat) > -1) || category.indexOf(cat) > -1) && title.indexOf(tit) > -1) {
+                this.config.data.questions[str] = data;
+            }
+        }
+    }
+    _parseQuestions(cat) {
+        let questions = [];
+        for (var str in this.config.data.questions) {
+            let arr = str.split(" - ");
+            let category = arr[0];
+            let subcategory, title;
+            if (arr.length > 2) {
+                subcategory = arr[1];
+                title = arr[2];
+            }
+            else {
+                title = arr[1];
+            }
+            if ((subcategory && subcategory.indexOf(cat) > -1) || category.indexOf(cat) > -1) {
+                questions.push(title);
+            }
+        }
+        return questions;
+    }
     _parseCategories() {
         let categories = [], subcategoryIndex = {};
         for (var str in this.config.data.questions) {

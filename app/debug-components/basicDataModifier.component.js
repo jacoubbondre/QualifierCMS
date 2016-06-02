@@ -40,6 +40,7 @@ BasicDataModifierComponent = __decorate([
 		</form>
 	`
     }), 
-    __metadata('design:paramtypes', [store_service_1.StoreService])
+    __metadata('design:paramtypes', [(typeof (_a = typeof store_service_1.StoreService !== 'undefined' && store_service_1.StoreService) === 'function' && _a) || Object])
 ], BasicDataModifierComponent);
 exports.BasicDataModifierComponent = BasicDataModifierComponent;
+var _a;

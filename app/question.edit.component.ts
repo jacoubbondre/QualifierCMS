@@ -1,30 +1,43 @@
 import {Component, Input, Inject} from '@angular/core'
-import {UICategoryListContainer} from './ui.category.listcontainer.component'
+import {UIQuestionListContainer} from './ui.question.listcontainer.component'
 import {StoreService} from './services/store.service'
+import {RouteParams} from '@angular/router-deprecated'
 
 declare var Materialize;
 
 @Component({
   selector: 'question-edit',
   template: `
-    <div class="row">
-      <h4>{{brand}} - brand</h4>
-      <span>What would you like to edit?</span>
+    <div class="row list-header">
+      <h4>{{brand}} - brand - {{category}} - {{question}}</h4>
+      <span>Please enter the required information.</span>
     </div>
-    <ui-category-list-container [context]="'category'"></ui-category-list-container>
+    <ui-question-list-container [data]="questionData" [category]="category" [question]="questions"></ui-question-list-container>
     `,
-  directives: [UICategoryListContainer]
+  directives: [UIQuestionListContainer]
 })
 export class QuestionEdit {
   private _onConfigChanged: any
   private brand: string
+  private category: string
+  private question: string
+  private questionData: any
 
-  constructor( @Inject(StoreService) private store: StoreService) {
+  constructor( private store: StoreService, private params: RouteParams) {
     this._onConfigChanged = this.store.onConfigChange
       .subscribe(config => this.onConfigChange(config))
+
+    this.category = params.get('category')
+    this.question = params.get('question')
+  }
+
+  ngOnInit() {
+    this.onConfigChange(this.store.getConfig(undefined))
   }
 
   onConfigChange(config) {
     this.brand = config.getBrand()
+    this.questionData = config.getQuestionByCategoryName(this.category, this.question)
+    console.log(this.questionData)
   }
 }

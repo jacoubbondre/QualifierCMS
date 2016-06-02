@@ -8,31 +8,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
 const core_1 = require('@angular/core');
 const ui_category_listitem_component_1 = require('./ui.category.listitem.component');
-const store_service_1 = require('./services/store.service');
 let UICategoryListContainer = class UICategoryListContainer {
-    constructor(store) {
-        this.store = store;
-        this._onConfigChanged = this.store.onConfigChange
-            .subscribe(config => this.onConfigChange(config));
-    }
-    onConfigChange(config) {
-        console.log(this.categories);
-        this.categories = config.getCategories();
-        console.log(this.categories);
-    }
-    ngOnChanges(changes) {
-        console.log(changes);
-    }
 };
 __decorate([
     core_1.Input(), 
     __metadata('design:type', Object)
-], UICategoryListContainer.prototype, "categories", void 0);
+], UICategoryListContainer.prototype, "questions", void 0);
+__decorate([
+    core_1.Input(), 
+    __metadata('design:type', Object)
+], UICategoryListContainer.prototype, "category", void 0);
 UICategoryListContainer = __decorate([
     core_1.Component({
         selector: 'ui-category-list-container',
@@ -45,18 +32,14 @@ UICategoryListContainer = __decorate([
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <span>General Application Settings</span>
-        </tr>
-        <tr *ngFor="let category of categories">
-          <ui-category-list-item [data]="category"></ui-category-list-item>
+        <tr *ngFor="let question of questions">
+          <ui-category-list-item [title]="question" [category]="category"></ui-category-list-item>
         </tr>
       </tbody>
     </table>
     `,
         directives: [ui_category_listitem_component_1.UICategoryListItem]
-    }),
-    __param(0, core_1.Inject(core_1.forwardRef(() => store_service_1.StoreService))), 
-    __metadata('design:paramtypes', [store_service_1.StoreService])
+    }), 
+    __metadata('design:paramtypes', [])
 ], UICategoryListContainer);
 exports.UICategoryListContainer = UICategoryListContainer;

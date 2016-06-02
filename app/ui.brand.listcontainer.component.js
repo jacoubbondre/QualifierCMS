@@ -9,37 +9,48 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
+const ui_brand_listitem_component_1 = require('./ui.brand.listitem.component');
 const store_service_1 = require('./services/store.service');
-let UINavbar = class UINavbar {
+let UIBrandListContainer = class UIBrandListContainer {
     constructor(store) {
         this.store = store;
+        this._onConfigChanged = this.store.onConfigChange
+            .subscribe(config => this.onConfigChange(config));
+    }
+    onConfigChange(config) {
+        this.categories = config.getCategories();
+        console.log(this.categories);
     }
 };
 __decorate([
     core_1.Input(), 
     __metadata('design:type', Object)
-], UINavbar.prototype, "data", void 0);
-UINavbar = __decorate([
+], UIBrandListContainer.prototype, "categories", void 0);
+UIBrandListContainer = __decorate([
     core_1.Component({
-        selector: 'ui-navbar',
+        selector: 'ui-brand-list-container',
         template: `
-    <div class="navbar-fixed">
-       <nav>
-         <div class="nav-wrapper">
-           <ul class="left">
-             <li><a class="waves-effect waves-light" href="/"><i class="material-icons">menu</i></a></li>
-             <li><a class="waves-effect waves-light" (click)="store.preview()"><i class="material-icons left">visibility</i>Preview Application</a></li>
-             <li><a class="waves-effect waves-light"><i class="material-icons left">arrow_downward</i>Publish Application</a></li>
-           </ul>
-           <ul class="right">
-             <li><a class="waves-effect waves-light"><i class="material-icons">more_vert</i></a></li>
-           </ul>
-         </div>
-       </nav>
-    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Last Modified</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <div class="category-container">
+            <span>General Application Settings</span>
+          </div>
+        </tr>
+        <tr *ngFor="let category of categories">
+          <ui-brand-list-item [data]="category"></ui-brand-list-item>
+        </tr>
+      </tbody>
+    </table>
     `,
-        directives: []
+        directives: [ui_brand_listitem_component_1.UIBrandListItem]
     }), 
     __metadata('design:paramtypes', [store_service_1.StoreService])
-], UINavbar);
-exports.UINavbar = UINavbar;
+], UIBrandListContainer);
+exports.UIBrandListContainer = UIBrandListContainer;

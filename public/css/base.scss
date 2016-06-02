@@ -27,6 +27,12 @@ main-app {
 	@import 'components/basicDataModifier.scss';
 	@import 'components/basicDataList.scss';
 	@import 'components/ui-category-listitem.scss';
+
+	.list-header {
+		h4 {
+			text-transform: capitalize;
+		}
+	}
 }
 
 @import 'components/browser-specific/ie.scss';

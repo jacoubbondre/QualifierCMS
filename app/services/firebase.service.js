@@ -21,7 +21,8 @@ let FirebaseService = class FirebaseService {
         this.ref = new Firebase(this.url);
         this.endpoints = {
             restore: { uri: '/restore', ref: undefined },
-            default: { uri: '/default', ref: undefined }
+            default: { uri: '/default', ref: undefined },
+            latest: { uri: '/latest', ref: undefined }
         };
         for (let i in this.endpoints) {
             this.endpoints[i].ref = new Firebase(this.url + this.endpoints[i].uri);
@@ -31,7 +32,8 @@ let FirebaseService = class FirebaseService {
     saveToFile(data, name) {
         let headers = new http_1.Headers().append('Content-Type', 'application/json');
         let tmpStr = 'data=' + (JSON.stringify(data));
-        this.http.post(name + '.php', tmpStr)
+        console.log('save to file');
+        this.http.post('http://localhost/QualifierCMS/save.php', tmpStr)
             .subscribe(res => {
             console.log(res);
         }, () => console.log('Auth Complete'));
@@ -48,6 +50,12 @@ let FirebaseService = class FirebaseService {
         else if (id in configs) {
             console.log('updating existing', data);
             let ref = new Firebase(this.url + this.endpoints['restore'].uri + '/' + id);
+            ref.set({
+                created: configs[id].created,
+                updated: Firebase.ServerValue.TIMESTAMP,
+                data: data.data
+            });
+            ref = new Firebase(this.url + this.endpoints['latest'].uri);
             ref.set({
                 created: configs[id].created,
                 updated: Firebase.ServerValue.TIMESTAMP,

@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require('@angular/core');
 const router_deprecated_1 = require('@angular/router-deprecated');
-let UICategoryListItem = class UICategoryListItem {
+let UIBrandListItem = class UIBrandListItem {
     constructor(router) {
         this.router = router;
         this.movable = true;
@@ -19,29 +19,39 @@ let UICategoryListItem = class UICategoryListItem {
     ngAfterViewInit() {
         Materialize.updateTextFields();
     }
+    navigateToCategory(category) {
+        console.log(category);
+        this.router.navigate(['Category', { category: category }]);
+    }
 };
 __decorate([
     core_1.Input(), 
     __metadata('design:type', Object)
-], UICategoryListItem.prototype, "title", void 0);
-__decorate([
-    core_1.Input(), 
-    __metadata('design:type', Object)
-], UICategoryListItem.prototype, "category", void 0);
-UICategoryListItem = __decorate([
+], UIBrandListItem.prototype, "data", void 0);
+UIBrandListItem = __decorate([
     core_1.Component({
-        selector: 'ui-category-list-item',
+        selector: 'ui-brand-list-item',
         template: `
       <div class="category-container">
         <div class="icon"><i class="material-icons move-icon" *ngIf="movable">menu</i></div>
-        <div class="title">{{title}}</div>
-        <a href="#" [routerLink]="['/EditQuestion', {category: category, question: title}]">
+        <div class="title">{{data.category}}</div>
+        <a href="#" [routerLink]="['/EditCategory', {category: data.category}]">
           <div class="icon"><i class="material-icons edit-icon" *ngIf="editable">edit</i></div>
         </a>
+      </div>
+
+      <div class="subcategory" *ngIf="!!data.subcategories && data.subcategories.length">
+        <div class="category-container" *ngFor="let subcategory of data.subcategories; let i = index">
+              <div class="icon"><i class="material-icons move-icon" *ngIf="movable">menu</i></div>
+              <div class="title category">{{subcategory.category}}</div>
+              <a href="#" [routerLink]="['/EditCategory', {category: data.subcategories[i].category}]">
+                <div class="icon"><i class="material-icons edit-icon" *ngIf="editable">edit</i></div>
+              </a>
+        </div>
       </div>
     `,
         directives: [router_deprecated_1.ROUTER_DIRECTIVES]
     }), 
     __metadata('design:paramtypes', [router_deprecated_1.Router])
-], UICategoryListItem);
-exports.UICategoryListItem = UICategoryListItem;
+], UIBrandListItem);
+exports.UIBrandListItem = UIBrandListItem;

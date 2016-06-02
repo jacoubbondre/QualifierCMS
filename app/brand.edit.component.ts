@@ -1,5 +1,5 @@
 import {Component, Input, Inject} from '@angular/core'
-import {UICategoryListContainer} from './ui.category.listcontainer.component'
+import {UIBrandListContainer} from './ui.brand.listcontainer.component'
 import {StoreService} from './services/store.service'
 
 declare var Materialize;
@@ -7,24 +7,28 @@ declare var Materialize;
 @Component({
   selector: 'brand-edit',
   template: `
-    <div class="row">
+    <div class="row list-header">
       <h4>{{brand}} - brand</h4>
       <span>What would you like to edit?</span>
     </div>
-    <ui-category-list-container></ui-category-list-container>
+    <ui-brand-list-container></ui-brand-list-container>
     `,
-  directives: [UICategoryListContainer]
+  directives: [UIBrandListContainer]
 })
 export class BrandEdit {
   private _onConfigChanged: any
   private brand: string
 
-  constructor( @Inject(StoreService) private store: StoreService) {
+  constructor(private store: StoreService) {
     this._onConfigChanged = this.store.onConfigChange
       .subscribe(config => this.onConfigChange(config))
   }
 
+  ngOnInit() {
+    this.onConfigChange(this.store.getConfig(undefined))
+  }
+
   onConfigChange(config) {
-    this.brand = config.getBrand()
+    if (config) this.brand = config.getBrand()
   }
 }

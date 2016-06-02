@@ -14,7 +14,8 @@ export class FirebaseService {
 		this.ref = new Firebase(this.url)
 		this.endpoints = {
 			restore: { uri: '/restore', ref: undefined },
-			default: { uri: '/default', ref: undefined }
+			default: { uri: '/default', ref: undefined },
+			latest: { uri: '/latest', ref: undefined }
 		}
 
 		for (let i in this.endpoints) {
@@ -31,7 +32,8 @@ export class FirebaseService {
 		let headers = new Headers().append('Content-Type', 'application/json')
 
 		let tmpStr = 'data=' + (JSON.stringify(data))
-		this.http.post(name + '.php', tmpStr)
+		console.log('save to file')
+		this.http.post('http://localhost/QualifierCMS/save.php', tmpStr)
 			.subscribe(
 				res => {
 					console.log(res)
@@ -51,6 +53,12 @@ export class FirebaseService {
 		} else if (id in configs) {
 			console.log('updating existing', data)
 			let ref = new Firebase(this.url + this.endpoints['restore'].uri + '/' + id)
+			ref.set({
+				created: configs[id].created,
+				updated: Firebase.ServerValue.TIMESTAMP,
+				data: data.data
+			})
+			ref = new Firebase(this.url + this.endpoints['latest'].uri)
 			ref.set({
 				created: configs[id].created,
 				updated: Firebase.ServerValue.TIMESTAMP,

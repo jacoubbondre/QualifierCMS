@@ -37,10 +37,21 @@ main-app {
       height: 20px; }
     main-app basic-data-list .selected {
       background-color: #187bea; }
-  main-app ui-category-list-item {
+  main-app ui-category-list-item, main-app ui-brand-list-item, main-app ui-question-list-item {
     width: 100%;
-    height: 100%; }
-    main-app ui-category-list-item .move-icon {
+    height: 50px;
+    position: relative; }
+    main-app ui-category-list-item .icon, main-app ui-category-list-item .title, main-app ui-brand-list-item .icon, main-app ui-brand-list-item .title, main-app ui-question-list-item .icon, main-app ui-question-list-item .title {
+      float: left; }
+    main-app ui-category-list-item .icon, main-app ui-category-list-item .move-icon, main-app ui-brand-list-item .icon, main-app ui-brand-list-item .move-icon, main-app ui-question-list-item .icon, main-app ui-question-list-item .move-icon {
       width: 30px; }
-    main-app ui-category-list-item .subcategory, main-app ui-category-list-item .title {
+    main-app ui-category-list-item .subcategory, main-app ui-category-list-item .title, main-app ui-brand-list-item .subcategory, main-app ui-brand-list-item .title, main-app ui-question-list-item .subcategory, main-app ui-question-list-item .title {
       padding-left: 50px; }
+    main-app ui-category-list-item .title, main-app ui-brand-list-item .title, main-app ui-question-list-item .title {
+      min-width: 60%; }
+  main-app .category-container {
+    width: 100%;
+    position: relative;
+    height: 50px; }
+  main-app .list-header h4 {
+    text-transform: capitalize; }

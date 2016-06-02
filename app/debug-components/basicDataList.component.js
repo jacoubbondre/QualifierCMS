@@ -54,6 +54,7 @@ BasicDataListComponent = __decorate([
     	<button class="load">Load</button>
 	`
     }), 
-    __metadata('design:paramtypes', [store_service_1.StoreService])
+    __metadata('design:paramtypes', [(typeof (_a = typeof store_service_1.StoreService !== 'undefined' && store_service_1.StoreService) === 'function' && _a) || Object])
 ], BasicDataListComponent);
 exports.BasicDataListComponent = BasicDataListComponent;
+var _a;

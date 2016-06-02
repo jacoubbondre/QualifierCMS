@@ -15,11 +15,8 @@ declare var Materialize
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <span>General Application Settings</span>
-        </tr>
-        <tr *ngFor="let category of categories">
-          <ui-category-list-item [data]="category"></ui-category-list-item>
+        <tr *ngFor="let question of questions">
+          <ui-category-list-item [title]="question" [category]="category"></ui-category-list-item>
         </tr>
       </tbody>
     </table>
@@ -28,21 +25,6 @@ declare var Materialize
 })
 export class UICategoryListContainer {
   private _onConfigChanged: any
-  @Input() categories
-
-  constructor( @Inject(forwardRef(() => StoreService)) private store: StoreService) {
-    this._onConfigChanged = this.store.onConfigChange
-      .subscribe(config => this.onConfigChange(config))
-  }
-
-  onConfigChange(config) {
-    console.log(this.categories)
-    this.categories = config.getCategories()
-
-    console.log(this.categories)
-  }
-
-  ngOnChanges(changes) {
-    console.log(changes)
-  }
+  @Input() questions
+  @Input() category
 }
