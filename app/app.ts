@@ -1,8 +1,10 @@
+import 'rxjs/Rx'
 import {bootstrap} from '@angular/platform-browser-dynamic'
 import { Http, Headers, HTTP_PROVIDERS } from '@angular/http'
 import {LoggerService} from './services/logger.service'
 import {FirebaseService} from './services/firebase.service'
 import {StoreService} from './services/store.service'
+import {I18nService} from './services/i18n.service'
 import {Component, Inject, forwardRef} from '@angular/core'
 import { RouteConfig, Router, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated'
 
@@ -33,7 +35,10 @@ class AppComponent {
 		private firebase: FirebaseService,
 		private store: StoreService,
 		private http: Http,
-		private router: Router) {
+		private router: Router,
+		private i18n: I18nService) {
+
+		i18n.setLanguage('en')
 	}
 
 	ngOnInit() {
@@ -46,4 +51,4 @@ class AppComponent {
 	}
  }
 
-bootstrap(AppComponent, [HTTP_PROVIDERS, ROUTER_PROVIDERS, LoggerService, FirebaseService, StoreService])
+bootstrap(AppComponent, [HTTP_PROVIDERS, ROUTER_PROVIDERS, LoggerService, FirebaseService, StoreService, I18nService])

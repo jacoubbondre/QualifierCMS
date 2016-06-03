@@ -8,11 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+require('rxjs/Rx');
 const platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
 const http_1 = require('@angular/http');
 const logger_service_1 = require('./services/logger.service');
 const firebase_service_1 = require('./services/firebase.service');
 const store_service_1 = require('./services/store.service');
+const i18n_service_1 = require('./services/i18n.service');
 const core_1 = require('@angular/core');
 const router_deprecated_1 = require('@angular/router-deprecated');
 const ui_navbar_component_1 = require('./ui.navbar.component');
@@ -20,11 +22,13 @@ const brand_edit_component_1 = require('./brand.edit.component');
 const category_edit_component_1 = require('./category.edit.component');
 const question_edit_component_1 = require('./question.edit.component');
 let AppComponent = class AppComponent {
-    constructor(firebase, store, http, router) {
+    constructor(firebase, store, http, router, i18n) {
         this.firebase = firebase;
         this.store = store;
         this.http = http;
         this.router = router;
+        this.i18n = i18n;
+        i18n.setLanguage('en');
     }
     ngOnInit() {
     }
@@ -49,6 +53,6 @@ AppComponent = __decorate([
         { path: '/edit/:category', component: category_edit_component_1.CategoryEdit, name: 'EditCategory' },
         { path: '/edit/:category/:question', component: question_edit_component_1.QuestionEdit, name: 'EditQuestion' }
     ]), 
-    __metadata('design:paramtypes', [firebase_service_1.FirebaseService, store_service_1.StoreService, http_1.Http, router_deprecated_1.Router])
+    __metadata('design:paramtypes', [firebase_service_1.FirebaseService, store_service_1.StoreService, http_1.Http, router_deprecated_1.Router, i18n_service_1.I18nService])
 ], AppComponent);
-platform_browser_dynamic_1.bootstrap(AppComponent, [http_1.HTTP_PROVIDERS, router_deprecated_1.ROUTER_PROVIDERS, logger_service_1.LoggerService, firebase_service_1.FirebaseService, store_service_1.StoreService]);
+platform_browser_dynamic_1.bootstrap(AppComponent, [http_1.HTTP_PROVIDERS, router_deprecated_1.ROUTER_PROVIDERS, logger_service_1.LoggerService, firebase_service_1.FirebaseService, store_service_1.StoreService, i18n_service_1.I18nService]);

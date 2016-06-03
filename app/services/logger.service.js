@@ -10,11 +10,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require('@angular/core');
 let LoggerService = class LoggerService {
-    log(s) {
-        console.log(s);
+    log(...args) {
+        if (typeof args[0] === 'object' && 'arguments' in args[0]) {
+            var name = args[0].arguments.name;
+            args = args.splice(0, 1);
+            console.log(name, args);
+        }
+        else {
+            if (args.length == 1) {
+                console.log(args[0]);
+            }
+            else {
+                console.log(args);
+            }
+        }
     }
-    error(s) {
-        console.error(s);
+    error(...args) {
+        if (typeof args[0] === 'object' && 'arguments' in args[0]) {
+            var name = args[0].arguments.name;
+            args = args.splice(0, 1);
+            console.error(name, args);
+        }
+        else {
+            if (args.length == 1) {
+                console.error(args[0]);
+            }
+            else {
+                console.error(args);
+            }
+        }
     }
 };
 LoggerService = __decorate([
