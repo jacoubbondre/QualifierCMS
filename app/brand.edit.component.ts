@@ -1,6 +1,7 @@
 import {Component, Input, Inject} from '@angular/core'
 import {UIBrandListContainer} from './ui.brand.listcontainer.component'
 import {StoreService} from './services/store.service'
+import {InternationalizationPipe} from './pipes/i18n.pipe'
 
 declare var Materialize;
 
@@ -8,12 +9,13 @@ declare var Materialize;
   selector: 'brand-edit',
   template: `
     <div class="row list-header">
-      <h4>{{brand}} - brand</h4>
-      <span>What would you like to edit?</span>
+      <h4>{{brand}} - {{'brand' | translate}}</h4>
+      <span>{{'What would you like to edit?' | translate}}</span>
     </div>
     <ui-brand-list-container></ui-brand-list-container>
     `,
-  directives: [UIBrandListContainer]
+  directives: [UIBrandListContainer],
+  pipes: [InternationalizationPipe]
 })
 export class BrandEdit {
   private _onConfigChanged: any

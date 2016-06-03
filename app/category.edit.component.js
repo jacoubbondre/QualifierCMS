@@ -12,6 +12,7 @@ const core_1 = require('@angular/core');
 const ui_category_listcontainer_component_1 = require('./ui.category.listcontainer.component');
 const store_service_1 = require('./services/store.service');
 const router_deprecated_1 = require('@angular/router-deprecated');
+const i18n_pipe_1 = require('./pipes/i18n.pipe');
 let CategoryEdit = class CategoryEdit {
     constructor(store, params) {
         this.store = store;
@@ -35,12 +36,13 @@ CategoryEdit = __decorate([
         selector: 'category-edit',
         template: `
     <div class="row list-header">
-      <h4>{{brand}} - brand - {{category}}</h4>
-      <span>What would you like to edit?</span>
+      <h4>{{brand}} - {{'brand' | translate}} - {{category}}</h4>
+      <span>{{'What would you like to edit?' | translate}}</span>
     </div>
     <ui-category-list-container [questions]="questions" [category]="category"></ui-category-list-container>
     `,
-        directives: [ui_category_listcontainer_component_1.UICategoryListContainer]
+        directives: [ui_category_listcontainer_component_1.UICategoryListContainer],
+        pipes: [i18n_pipe_1.InternationalizationPipe]
     }), 
     __metadata('design:paramtypes', [store_service_1.StoreService, router_deprecated_1.RouteParams])
 ], CategoryEdit);

@@ -2,6 +2,7 @@ import {Component, Input, Inject} from '@angular/core'
 import {UICategoryListContainer} from './ui.category.listcontainer.component'
 import {StoreService} from './services/store.service'
 import {RouteParams} from '@angular/router-deprecated'
+import {InternationalizationPipe} from './pipes/i18n.pipe'
 
 declare var Materialize;
 
@@ -9,12 +10,13 @@ declare var Materialize;
   selector: 'category-edit',
   template: `
     <div class="row list-header">
-      <h4>{{brand}} - brand - {{category}}</h4>
-      <span>What would you like to edit?</span>
+      <h4>{{brand}} - {{'brand' | translate}} - {{category}}</h4>
+      <span>{{'What would you like to edit?' | translate}}</span>
     </div>
     <ui-category-list-container [questions]="questions" [category]="category"></ui-category-list-container>
     `,
-    directives: [UICategoryListContainer]
+    directives: [UICategoryListContainer],
+    pipes: [InternationalizationPipe]
 })
 export class CategoryEdit {
   private _onConfigChanged: any

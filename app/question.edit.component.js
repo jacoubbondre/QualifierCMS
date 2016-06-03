@@ -12,6 +12,7 @@ const core_1 = require('@angular/core');
 const ui_question_listcontainer_component_1 = require('./ui.question.listcontainer.component');
 const store_service_1 = require('./services/store.service');
 const router_deprecated_1 = require('@angular/router-deprecated');
+const i18n_pipe_1 = require('./pipes/i18n.pipe');
 let QuestionEdit = class QuestionEdit {
     constructor(store, params) {
         this.store = store;
@@ -35,12 +36,13 @@ QuestionEdit = __decorate([
         selector: 'question-edit',
         template: `
     <div class="row list-header">
-      <h4>{{brand}} - brand - {{category}} - {{question}}</h4>
-      <span>Please enter the required information.</span>
+      <h4>{{brand}} - {{'brand' | translate}} - {{category}} - {{question}}</h4>
+      <span>{{'Please enter the required information.' | translate}}</span>
     </div>
     <ui-question-list-container [data]="questionData" [category]="category" [question]="questions"></ui-question-list-container>
     `,
-        directives: [ui_question_listcontainer_component_1.UIQuestionListContainer]
+        directives: [ui_question_listcontainer_component_1.UIQuestionListContainer],
+        pipes: [i18n_pipe_1.InternationalizationPipe]
     }), 
     __metadata('design:paramtypes', [store_service_1.StoreService, router_deprecated_1.RouteParams])
 ], QuestionEdit);

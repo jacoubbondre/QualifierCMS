@@ -15,7 +15,7 @@ let InternationalizationPipe = class InternationalizationPipe {
         this.i18n = i18n;
     }
     transform(value) {
-        return this.i18n.translate(value);
+        return this.i18n.translate(value.toLowerCase()) || value;
     }
 };
 InternationalizationPipe = __decorate([

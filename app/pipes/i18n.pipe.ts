@@ -8,7 +8,7 @@ import {I18nService} from '../services/i18n.service'
 export class InternationalizationPipe implements PipeTransform {
   constructor(private i18n: I18nService) {}
 
-  transform(value:any): string {
-    return this.i18n.translate(value)
+  transform(value:string): string {
+    return this.i18n.translate(value.toLowerCase()) || value
   }
 }

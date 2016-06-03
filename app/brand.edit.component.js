@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 const core_1 = require('@angular/core');
 const ui_brand_listcontainer_component_1 = require('./ui.brand.listcontainer.component');
 const store_service_1 = require('./services/store.service');
+const i18n_pipe_1 = require('./pipes/i18n.pipe');
 let BrandEdit = class BrandEdit {
     constructor(store) {
         this.store = store;
@@ -30,12 +31,13 @@ BrandEdit = __decorate([
         selector: 'brand-edit',
         template: `
     <div class="row list-header">
-      <h4>{{brand}} - brand</h4>
-      <span>What would you like to edit?</span>
+      <h4>{{brand}} - {{'brand' | translate}}</h4>
+      <span>{{'What would you like to edit?' | translate}}</span>
     </div>
     <ui-brand-list-container></ui-brand-list-container>
     `,
-        directives: [ui_brand_listcontainer_component_1.UIBrandListContainer]
+        directives: [ui_brand_listcontainer_component_1.UIBrandListContainer],
+        pipes: [i18n_pipe_1.InternationalizationPipe]
     }), 
     __metadata('design:paramtypes', [store_service_1.StoreService])
 ], BrandEdit);

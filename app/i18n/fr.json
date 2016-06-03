@@ -1,3 +1,6 @@
 {
-	"test": "fr test"
+	"brand": "brand(fr)",
+	"fridge": "fridge(fr)",
+	"What would you like to edit?": "What would you like to edit?(fr)",
+	"Please enter the required information.": "Please enter the required information.(fr)"
 }
