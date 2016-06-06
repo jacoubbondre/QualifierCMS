@@ -1,6 +1,5 @@
 import {Component, Input, Inject} from 'angular2/core'
 import {GlobalNav} from './global.navigation'
-import {Uploader} from './upload'
 
 declare var Materialize;
 
@@ -10,8 +9,19 @@ declare var Materialize;
     <div class="container">
     <global-nav></global-nav>
   <div class="row">
-    <form class="col s12">
+    <form action="upload.php" class="col s12">
     <p>What would you like to edit</p>
+    
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>File</span>
+        <input type="file">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+    
     <h2>Question</h2>
       <div class="row">
         <div class="input-field col s6">
@@ -69,11 +79,12 @@ declare var Materialize;
         </div></li>
   </ul>
   </div>
+  <div><input type="submit"></div>
     </form>
   </div>
   </div>
     `,
-    directives: [GlobalNav, Uploader]
+    directives: [GlobalNav]
 })
 export class SingleAnswerEdit {
     
