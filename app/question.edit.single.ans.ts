@@ -1,5 +1,6 @@
 import {Component, Input, Inject} from 'angular2/core'
 import {GlobalNav} from './global.navigation'
+import {Uploader} from './upload'
 
 declare var Materialize;
 
@@ -72,7 +73,7 @@ declare var Materialize;
   </div>
   </div>
     `,
-    directives: [GlobalNav]
+    directives: [GlobalNav, Uploader]
 })
 export class SingleAnswerEdit {
     
