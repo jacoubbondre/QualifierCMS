@@ -1,6 +1,6 @@
 import {Injectable, EventEmitter} from '@angular/core'
 import {LoggerService} from './logger.service'
-import { Http } from '@angular/http'
+import { Http, Response } from '@angular/http'
 
 @Injectable()
 export class I18nService {

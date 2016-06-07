@@ -25,7 +25,16 @@ let EnvironmentService = class EnvironmentService {
         else {
             this._environment = modes.PRODUCTION;
         }
+        this.setEnglish();
     }
+    setEnglish() { this._language = languages.ENGLISH; }
+    setEN() { this.setEnglish(); }
+    isEnglish() { return this._language == languages.ENGLISH; }
+    language() { return this._language; }
+    locale() { return this.language(); }
+    setFrench() { this._language = languages.FRENCH; }
+    setFR() { this.setFrench(); }
+    isFrench() { return this._language == languages.FRENCH; }
     setDev() { this._environment = modes.DEVELOPMENT; }
     setDevelopment() { this.setDev(); }
     isDev() { return this._environment == modes.DEVELOPMENT; }
@@ -49,4 +58,8 @@ class modes {
     static get DEVELOPMENT() { return "dev"; }
     static get PRODUCTION() { return "prod"; }
     static get STAGING() { return "staging"; }
+}
+class languages {
+    static get ENGLISH() { return "en"; }
+    static get FRENCH() { return "fr"; }
 }

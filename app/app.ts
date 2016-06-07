@@ -5,6 +5,8 @@ import {LoggerService} from './services/logger.service'
 import {FirebaseService} from './services/firebase.service'
 import {StoreService} from './services/store.service'
 import {I18nService} from './services/i18n.service'
+import {EnvironmentService} from './services/environment.service'
+import {BreakpointService} from './services/breakpoint.service'
 import {Component, Inject, forwardRef} from '@angular/core'
 import { RouteConfig, Router, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated'
 
@@ -36,19 +38,31 @@ class AppComponent {
 		private store: StoreService,
 		private http: Http,
 		private router: Router,
-		private i18n: I18nService) {
+		private i18n: I18nService,
+		private env: EnvironmentService,
+		private breakpoint: BreakpointService,
+		private logger: LoggerService) {
 
-		i18n.setLanguage('en')
-	}
-
-	ngOnInit() {
+		breakpoint.add('tablet', 480)
+        breakpoint.add('desktop', 481)
 	}
 
 	ngAfterViewInit() {
+		this.breakpoint.afterViewInit()
+		this.env.afterViewInit()
+
+		this.i18n.setLanguage(this.env.language())
+
+		if (this.env.isDev() || this.env.isStaging()) {
+			this.breakpoint.debugMode(true)
+    	}
+
+        this.logger.log(`Angular 2 app environment: ${this.env.mode()}`)
+
 		this.http.get('http://findmy.maytag.ca/config/maytag-en_CA.json').subscribe(res => {
 			this.firebase.saveDefaultConfig(res.json())
 		});
 	}
  }
 
-bootstrap(AppComponent, [HTTP_PROVIDERS, ROUTER_PROVIDERS, LoggerService, FirebaseService, StoreService, I18nService])
+bootstrap(AppComponent, [HTTP_PROVIDERS, ROUTER_PROVIDERS, LoggerService, FirebaseService, StoreService, I18nService, EnvironmentService, BreakpointService])
