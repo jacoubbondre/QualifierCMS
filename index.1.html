@@ -1,0 +1,107 @@
+<html>
+  <head>
+  	<!-- https://angular.io/docs/ts/latest/quickstart.html -->
+    <title>Basic Angular2 Typescript Setup</title>
+    <link rel="stylesheet" href="./public/css/materialize.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 1. Load libraries -->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- IE required polyfills, in this exact order -->
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="https://npmcdn.com/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+    
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="./public/js/browser-detect.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/http.dev.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <!-- 2. Configure SystemJS -->
+    <script>
+      System.config({
+        packages: {
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('app/app.js')
+            .then(null, console.error.bind(console));
+            
+    </script>
+
+  </head>
+
+  <!-- 3. Display the application -->
+  <body>
+      <div id="container">
+            <main-app></main-app>
+      </div>
+      <!-- -->
+              <div class="container">
+                <h1><a href="">Easy Ajax Image Upload with jQuery</a></h1>
+                <hr> 
+                <div id="preview"><img src="no-image.jpg" /></div>
+                    
+                <form id="form" action="ajaxupload.php" method="post" enctype="multipart/form-data">
+                  <input id="uploadImage" type="file" accept="image/*" name="image" />
+                  <input id="button" type="submit" value="Upload">
+                </form>
+                    <div id="err"></div>
+                <hr>
+                <p><a href="http://www.codingcage.com" target="_blank">www.codingcage.com</a></p>
+              </div>
+      <!-- -->
+      <script>
+
+        $(document).ready(function (e) {
+        $("#form").on('submit',(function(e) {
+          e.preventDefault();
+          $.ajax({
+                url: "upload.php",
+          type: "POST",
+          data:  new FormData(this),
+          contentType: false,
+                cache: false,
+          processData:false,
+          beforeSend : function()
+          {
+            //$("#preview").fadeOut();
+            $("#err").fadeOut();
+          },
+          success: function(data)
+              {
+            if(data=='invalid file')
+            {
+            // invalid file format.
+            $("#err").html("Invalid File !").fadeIn();
+            }
+            else
+            {
+            // view uploaded file.
+            $("#preview").html(data).fadeIn();
+            $("#form")[0].reset(); 
+            }
+              },
+            error: function(e) 
+              {
+            $("#err").html(e).fadeIn();
+              }          
+            });
+        }));
+        });
+
+      </script>
+      <script src="./public/js/materialize.js"></script>
+  </body>
+
+</html>

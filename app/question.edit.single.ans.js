@@ -32,11 +32,41 @@ System.register(['angular2/core', './global.navigation'], function(exports_1, co
                     $('#line01').mouseup(function () {
                         setTimeout(function () { console.log($('#line01').index()); }, 500);
                     });
+                    $("#uploadForm").on('submit', (function (e) {
+                        e.preventDefault();
+                        $.ajax({
+                            url: "upload.php",
+                            type: "POST",
+                            data: new FormData(this),
+                            contentType: false,
+                            cache: false,
+                            processData: false,
+                            beforeSend: function () {
+                                //$("#preview").fadeOut();
+                                console.log(this);
+                                $("#err").fadeOut();
+                            },
+                            success: function (data) {
+                                if (data == 'invalid file') {
+                                    // invalid file format.
+                                    $("#err").html("Invalid File !").fadeIn();
+                                }
+                                else {
+                                    // view uploaded file.
+                                    $("#preview").html(data).fadeIn();
+                                    $("#uploadForm")[0].reset();
+                                }
+                            },
+                            error: function (e) {
+                                $("#err").html(e).fadeIn();
+                            }
+                        });
+                    }));
                 };
                 SingleAnswerEdit = __decorate([
                     core_1.Component({
                         selector: 'question-single-answer-edit',
-                        template: "\n    <div class=\"container\">\n    <global-nav></global-nav>\n  <div class=\"row\">\n    <form action=\"upload.php\" class=\"col s12\">\n    <p>What would you like to edit</p>\n    \n    <div class=\"file-field input-field\">\n      <div class=\"btn\">\n        <span>File</span>\n        <input type=\"file\">\n      </div>\n      <div class=\"file-path-wrapper\">\n        <input class=\"file-path validate\" type=\"text\">\n      </div>\n    </div>\n    \n    <h2>Question</h2>\n      <div class=\"row\">\n        <div class=\"input-field col s6\">\n          <textarea id=\"question\" class=\"materialize-textarea\">For the Edit view, this will be pre-filled with the current question</textarea>\n          <label for=\"question\">Question</label>\n        </div>\n        <div class=\"input-field col s6\">\n          <textarea id=\"subQuestion\" class=\"materialize-textarea\">For the Edit view, this will be pre-filled with the current subquestion</textarea>\n          <label for=\"subQuestion\">Sub-Question</label>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"input-field col s6\">\n          <textarea id=\"explain_title\" type=\"text\" class=\"materialize-textarea\">For the Edit view, this will be pre-filled with the Why are you asking title</textarea>\n          <label for=\"explain_title\">Why are you asking title</label>\n        </div>\n        <div class=\"input-field col s6\">\n          <textarea id=\"explain_ans\" class=\"materialize-textarea\">For the Edit view, this will be pre-filled with the current explination</textarea>\n          <label for=\"explain_ans\">Why are you asking explination</label>\n        </div>\n      </div>\n      <div class=\"row\">\n            <div class=\"input-field col s12\">\n    <select>\n      <option value=\"\" disabled selected>Choose your category</option>\n      <option value=\"1\">Option 1</option>\n      <option value=\"2\">Option 2</option>\n      <option value=\"3\">Option 3</option>\n    </select>\n    <label>What question category does this question scor against?</label>\n  </div>\n      </div>\n      <div class=\"row\">\n      <h2>Answers</h2>\n  <ul class=\"sortable\">\n    <li id=\"line01\">\n        <div class=\"card-panel white\">\n          <textarea id=\"answer_00\" class=\"materialize-textarea\">For the Edit view, this will be pre-filled with the current question</textarea>\n        </div></li>\n    <li>\n        <div class=\"card-panel white\">\n          <textarea id=\"answer_01\" class=\"materialize-textarea\">For the Edit view, this will be pre-filled with the current question</textarea>\n        </div></li>\n        <li>\n        <div class=\"card-panel white\">\n          <textarea id=\"answer_02\" class=\"materialize-textarea\">For the Edit view, this will be pre-filled with the current question</textarea>\n        </div></li>\n        <li>\n        <div class=\"card-panel white\">\n          <textarea id=\"answer_03\" class=\"materialize-textarea\">For the Edit view, this will be pre-filled with the current question</textarea>\n        </div></li>\n        <li>\n        <div class=\"card-panel white\">\n          <textarea id=\"answer_04\" class=\"materialize-textarea\">For the Edit view, this will be pre-filled with the current question</textarea>\n        </div></li>\n  </ul>\n  </div>\n  <div><input type=\"submit\"></div>\n    </form>\n  </div>\n  </div>\n    ",
+                        template: "\n    <div class=\"container\">\n    <global-nav></global-nav>\n  <div class=\"row\">\n    <form id=\"uploadForm\" action=\"upload.php\" method=\"post\" class=\"col s12\">\n    <p>What would you like to edit</p>\n    \n    <div class=\"file-field input-field\">\n      <div class=\"btn\">\n        <span>File</span>\n        <input type=\"file\">\n      </div>\n      <div class=\"file-path-wrapper\">\n        <input class=\"file-path validate\" type=\"text\">\n      </div>\n    </div>\n    \n    \n  <div><input id=\"clickme\" type=\"submit\"></div>\n    </form>\n  </div>\n  </div>\n    ",
                         directives: [global_navigation_1.GlobalNav]
                     }), 
                     __metadata('design:paramtypes', [])
