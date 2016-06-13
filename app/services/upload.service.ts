@@ -37,7 +37,7 @@ export class UploadService {
             this.progressObserver.next(this.progress);
         };
         console.log("Sending Post Data: " + formData);
-        xhr.open('POST', 'http://localhost:8888/QualifierCMS/upload.php', true);
+        xhr.open('POST', url, true);
         xhr.send(formData);
     });
   }

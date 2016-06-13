@@ -52,7 +52,7 @@ System.register(['angular2/core', 'rxjs/Rx'], function(exports_1, context_1) {
                             _this.progressObserver.next(_this.progress);
                         };
                         console.log("Sending Post Data: " + formData);
-                        xhr.open('POST', 'http://localhost:8888/QualifierCMS/upload.php', true);
+                        xhr.open('POST', url, true);
                         xhr.send(formData);
                     });
                 };
