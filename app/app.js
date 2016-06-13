@@ -19,6 +19,7 @@ const environment_service_1 = require('./services/environment.service');
 const breakpoint_service_1 = require('./services/breakpoint.service');
 const core_1 = require('@angular/core');
 const router_deprecated_1 = require('@angular/router-deprecated');
+const ng2_dnd_1 = require('ng2-dnd/ng2-dnd');
 const ui_navbar_component_1 = require('./ui.navbar.component');
 const brand_edit_component_1 = require('./brand.edit.component');
 const category_edit_component_1 = require('./category.edit.component');
@@ -53,7 +54,7 @@ AppComponent = __decorate([
     core_1.Component({
         selector: 'main-app',
         providers: [http_1.HTTP_PROVIDERS],
-        directives: [ui_navbar_component_1.UINavbar, router_deprecated_1.ROUTER_DIRECTIVES, brand_edit_component_1.BrandEdit, category_edit_component_1.CategoryEdit, question_edit_component_1.QuestionEdit],
+        directives: [ui_navbar_component_1.UINavbar, router_deprecated_1.ROUTER_DIRECTIVES, ng2_dnd_1.DND_DIRECTIVES, brand_edit_component_1.BrandEdit, category_edit_component_1.CategoryEdit, question_edit_component_1.QuestionEdit],
         template: `
     	<ui-navbar></ui-navbar>
     	<router-outlet></router-outlet>
@@ -66,4 +67,4 @@ AppComponent = __decorate([
     ]), 
     __metadata('design:paramtypes', [firebase_service_1.FirebaseService, store_service_1.StoreService, http_1.Http, router_deprecated_1.Router, i18n_service_1.I18nService, environment_service_1.EnvironmentService, breakpoint_service_1.BreakpointService, logger_service_1.LoggerService])
 ], AppComponent);
-platform_browser_dynamic_1.bootstrap(AppComponent, [http_1.HTTP_PROVIDERS, router_deprecated_1.ROUTER_PROVIDERS, logger_service_1.LoggerService, firebase_service_1.FirebaseService, store_service_1.StoreService, i18n_service_1.I18nService, environment_service_1.EnvironmentService, breakpoint_service_1.BreakpointService]);
+platform_browser_dynamic_1.bootstrap(AppComponent, [http_1.HTTP_PROVIDERS, router_deprecated_1.ROUTER_PROVIDERS, ng2_dnd_1.DND_PROVIDERS, logger_service_1.LoggerService, firebase_service_1.FirebaseService, store_service_1.StoreService, i18n_service_1.I18nService, environment_service_1.EnvironmentService, breakpoint_service_1.BreakpointService]);

@@ -19,6 +19,14 @@ ui-category-list-item, ui-brand-list-item, ui-question-list-item {
 	.title {
 		min-width: 60%;
 	}
+
+	.hide-icon {
+		cursor: pointer;
+	}
+
+	.hide-icon.hidden {
+		color: $inactiveIconColor;
+	}
 }
 
 .category-container {

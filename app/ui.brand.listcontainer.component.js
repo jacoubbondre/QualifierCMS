@@ -11,21 +11,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 const core_1 = require('@angular/core');
 const ui_brand_listitem_component_1 = require('./ui.brand.listitem.component');
 const store_service_1 = require('./services/store.service');
+const ng2_dnd_1 = require('ng2-dnd/ng2-dnd');
 let UIBrandListContainer = class UIBrandListContainer {
     constructor(store) {
         this.store = store;
+        this.categories = [];
         this._onConfigChanged = this.store.onConfigChange
             .subscribe(config => this.onConfigChange(config));
     }
+    onCategoryReorder() {
+        this.config.setCategories(this.categories);
+        this.store.saveConfig();
+    }
+    onSubcategoryReorder() {
+        this.config.setCategories(this.categories);
+        this.store.saveConfig();
+    }
     onConfigChange(config) {
+        this.config = config;
         this.categories = config.getCategories();
         console.log(this.categories);
     }
 };
-__decorate([
-    core_1.Input(), 
-    __metadata('design:type', Object)
-], UIBrandListContainer.prototype, "categories", void 0);
 UIBrandListContainer = __decorate([
     core_1.Component({
         selector: 'ui-brand-list-container',
@@ -37,19 +44,19 @@ UIBrandListContainer = __decorate([
           <th>Last Modified</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody dnd-sortable-container [sortableData]="categories" [dropZones]="['brand']">
         <tr>
           <div class="category-container">
             <span>General Application Settings</span>
           </div>
         </tr>
-        <tr *ngFor="let category of categories">
-          <ui-brand-list-item [data]="category"></ui-brand-list-item>
+        <tr *ngFor="let category of categories; let i = index" [sortableIndex]="i" dnd-sortable (onDragSuccess)="onCategoryReorder()">
+          <ui-brand-list-item [data]="category" (onOrderChange)="onSubcategoryReorder()"></ui-brand-list-item>
         </tr>
       </tbody>
     </table>
     `,
-        directives: [ui_brand_listitem_component_1.UIBrandListItem]
+        directives: [ui_brand_listitem_component_1.UIBrandListItem, ng2_dnd_1.DND_DIRECTIVES]
     }), 
     __metadata('design:paramtypes', [store_service_1.StoreService])
 ], UIBrandListContainer);

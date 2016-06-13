@@ -141,6 +141,7 @@ class Config {
 	setBrand(brand) {if (brand) this.config.data.brand = brand }
 
 	getCategories() {return this.categories}
+	setCategories(data) {this._setCategories(data)}
 
 	_parseQuestion(cat, tit) {
 		let question;
@@ -209,49 +210,64 @@ class Config {
 		//parses list of category strings from config into an array format for *ngFor
 		//thanks kyle
 
-		let categories = [], subcategoryIndex = {}
+		let categories = [], subcategories = []
+		for (var i in this.config.data.questions['Appliance'].text[0].answers) {
+			let category = this.config.data.questions['Appliance'].text[0].answers[i].next.split(' - ')[0]
 
-		for (var str in this.config.data.questions) {
-			let arr = str.split(" - ")
-			let category = arr[0]
-			let subcategory, title
-			if (arr.length > 2) {
-				subcategory = arr[1]
-				title = arr[2]
-			} else {
-				title = arr[1]
-			}
-
-			if (!(category in categories)) {
-				categories[category] = {
-					category: category
-				}
-				if (!subcategory && title) categories[category].titles = []
-			}
-			if (!subcategory && title) categories[category].titles.push(title)
-
-			if (subcategory) {
-				if (!('subcategories' in categories[category])) {
-					categories[category].subcategories = []
-				}
-
-				if (!(subcategory in subcategoryIndex)) {
-					categories[category].subcategories.push({
-						category: subcategory,
-						titles: [title]
+			if (category == "Cooking") {	//"Do it fast" = technical debt
+				for (var j in this.config.data.questions['Cooking - Pre-Qualifier 1'].text[0].answers) {
+					let subcategory = this.config.data.questions['Cooking - Pre-Qualifier 1'].text[0].answers[j].next.split(' - ')[1]
+					subcategories.push({
+						category: subcategory
 					})
-					subcategoryIndex[subcategory] = categories[category].subcategories.length - 1
-				} else {
-					let index = subcategoryIndex[subcategory]
-					categories[category].subcategories[index].titles.push(title)
+				}
+			}
+
+			let obj = {category: category}
+			if (subcategories.length) obj['subcategories'] = subcategories
+			categories.push(obj)
+			subcategories = []
+		}
+
+		this.categories = categories
+	}
+
+	_setCategories(categoryArr) {
+		let categoryAnswers = [], subcategoryAnswers = []
+
+		for (var i in categoryArr) {
+			var title1 = categoryArr[i].category
+			for (var j in this.config.data.questions['Appliance'].text[0].answers) {
+				//parse categories
+				var title = this.config.data.questions['Appliance'].text[0].answers[j].next.split(' - ')[0]
+
+				if (title1 == title) {
+					categoryAnswers.push(this.config.data.questions['Appliance'].text[0].answers[j])
+				}
+			}
+
+			if (title1 == 'Cooking') {
+				for (var k in categoryArr[i].subcategories) {
+					var subtitle = categoryArr[i].subcategories[k].category
+
+					for (var j in this.config.data.questions['Cooking - Pre-Qualifier 1'].text[0].answers) {
+						//parse subcategories
+						var subtitle1 = this.config.data.questions['Cooking - Pre-Qualifier 1'].text[0].answers[j].next.split(' - ')[1]
+
+						if (subtitle1 == subtitle) {
+							subcategoryAnswers.push(this.config.data.questions['Cooking - Pre-Qualifier 1'].text[0].answers[j])
+						}
+					}
 				}
 			}
 		}
 
-		this.categories = []
-		for (var category in categories) {
-
-			if (category !== 'Appliance') this.categories.push(categories[category])
+		if (categoryAnswers.length == this.config.data.questions['Appliance'].text[0].answers.length) {
+			this.config.data.questions['Appliance'].text[0].answers = categoryAnswers
 		}
+		if (subcategoryAnswers.length == this.config.data.questions['Cooking - Pre-Qualifier 1'].text[0].answers.length) {
+			this.config.data.questions['Cooking - Pre-Qualifier 1'].text[0].answers = subcategoryAnswers
+		}
+		console.log(this.config)
 	}
 }

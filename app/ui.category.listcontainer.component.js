@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require('@angular/core');
 const ui_category_listitem_component_1 = require('./ui.category.listitem.component');
+const ng2_dnd_1 = require('ng2-dnd/ng2-dnd');
 let UICategoryListContainer = class UICategoryListContainer {
 };
 __decorate([
@@ -31,14 +32,14 @@ UICategoryListContainer = __decorate([
           <th>Last Modified</th>
         </tr>
       </thead>
-      <tbody>
-        <tr *ngFor="let question of questions">
+      <tbody dnd-sortable-container [sortableData]="questions">
+        <tr *ngFor="let question of questions; let i = index" [sortableIndex]="i" dnd-sortable>
           <ui-category-list-item [title]="question" [category]="category"></ui-category-list-item>
         </tr>
       </tbody>
     </table>
     `,
-        directives: [ui_category_listitem_component_1.UICategoryListItem]
+        directives: [ui_category_listitem_component_1.UICategoryListItem, ng2_dnd_1.DND_DIRECTIVES]
     }), 
     __metadata('design:paramtypes', [])
 ], UICategoryListContainer);

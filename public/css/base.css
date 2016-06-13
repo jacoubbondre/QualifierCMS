@@ -49,6 +49,10 @@ main-app {
       padding-left: 50px; }
     main-app ui-category-list-item .title, main-app ui-brand-list-item .title, main-app ui-question-list-item .title {
       min-width: 60%; }
+    main-app ui-category-list-item .hide-icon, main-app ui-brand-list-item .hide-icon, main-app ui-question-list-item .hide-icon {
+      cursor: pointer; }
+    main-app ui-category-list-item .hide-icon.hidden, main-app ui-brand-list-item .hide-icon.hidden, main-app ui-question-list-item .hide-icon.hidden {
+      color: #ccc; }
   main-app .category-container {
     width: 100%;
     position: relative;

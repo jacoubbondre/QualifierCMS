@@ -7,8 +7,9 @@ import {StoreService} from './services/store.service'
 import {I18nService} from './services/i18n.service'
 import {EnvironmentService} from './services/environment.service'
 import {BreakpointService} from './services/breakpoint.service'
-import {Component, Inject, forwardRef} from '@angular/core'
+import {Component, Inject} from '@angular/core'
 import { RouteConfig, Router, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated'
+import {DND_PROVIDERS, DND_DIRECTIVES} from 'ng2-dnd/ng2-dnd';
 
 import {UINavbar} from './ui.navbar.component'
 import {BrandEdit} from './brand.edit.component'
@@ -19,7 +20,7 @@ import {QuestionEdit} from './question.edit.component'
 @Component({
 	selector: 'main-app',
 	providers: [HTTP_PROVIDERS],
-	directives: [UINavbar, ROUTER_DIRECTIVES, BrandEdit, CategoryEdit, QuestionEdit],
+	directives: [UINavbar, ROUTER_DIRECTIVES, DND_DIRECTIVES, BrandEdit, CategoryEdit, QuestionEdit],
     template: `
     	<ui-navbar></ui-navbar>
     	<router-outlet></router-outlet>
@@ -65,4 +66,4 @@ class AppComponent {
 	}
  }
 
-bootstrap(AppComponent, [HTTP_PROVIDERS, ROUTER_PROVIDERS, LoggerService, FirebaseService, StoreService, I18nService, EnvironmentService, BreakpointService])
+bootstrap(AppComponent, [HTTP_PROVIDERS, ROUTER_PROVIDERS, DND_PROVIDERS, LoggerService, FirebaseService, StoreService, I18nService, EnvironmentService, BreakpointService])

@@ -1,6 +1,7 @@
 import {Component, Input, Inject, forwardRef} from '@angular/core'
 import {UICategoryListItem} from './ui.category.listitem.component'
 import {StoreService} from './services/store.service'
+import {DND_DIRECTIVES} from 'ng2-dnd/ng2-dnd'
 
 declare var Materialize
 
@@ -14,14 +15,14 @@ declare var Materialize
           <th>Last Modified</th>
         </tr>
       </thead>
-      <tbody>
-        <tr *ngFor="let question of questions">
+      <tbody dnd-sortable-container [sortableData]="questions">
+        <tr *ngFor="let question of questions; let i = index" [sortableIndex]="i" dnd-sortable>
           <ui-category-list-item [title]="question" [category]="category"></ui-category-list-item>
         </tr>
       </tbody>
     </table>
     `,
-  directives: [UICategoryListItem]
+  directives: [UICategoryListItem, DND_DIRECTIVES]
 })
 export class UICategoryListContainer {
   private _onConfigChanged: any
