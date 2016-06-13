@@ -1,4 +1,4 @@
-System.register(['angular2/core', './global.navigation'], function(exports_1, context_1) {
+System.register(['angular2/core', './services/upload.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,66 +10,39 @@ System.register(['angular2/core', './global.navigation'], function(exports_1, co
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, global_navigation_1;
+    var core_1, upload_service_1;
     var SingleAnswerEdit;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (global_navigation_1_1) {
-                global_navigation_1 = global_navigation_1_1;
+            function (upload_service_1_1) {
+                upload_service_1 = upload_service_1_1;
             }],
         execute: function() {
             SingleAnswerEdit = (function () {
-                function SingleAnswerEdit() {
-                }
-                SingleAnswerEdit.prototype.ngAfterViewInit = function () {
-                    Materialize.updateTextFields();
-                    $('select').material_select();
-                    $(".sortable").sortable({});
-                    $(".sortable").disableSelection();
-                    $('#line01').mouseup(function () {
-                        setTimeout(function () { console.log($('#line01').index()); }, 500);
+                function SingleAnswerEdit(service) {
+                    this.service = service;
+                    this.service.progress$.subscribe(function (data) {
+                        console.log('progress = ' + data);
                     });
-                    $("#uploadForm").on('submit', (function (e) {
-                        e.preventDefault();
-                        $.ajax({
-                            url: "upload.php",
-                            type: "POST",
-                            data: new FormData(this),
-                            contentType: false,
-                            cache: false,
-                            processData: false,
-                            beforeSend: function () {
-                                //$("#preview").fadeOut();
-                                console.log(this);
-                                $("#err").fadeOut();
-                            },
-                            success: function (data) {
-                                if (data == 'invalid file') {
-                                    // invalid file format.
-                                    $("#err").html("Invalid File !").fadeIn();
-                                }
-                                else {
-                                    // view uploaded file.
-                                    $("#preview").html(data).fadeIn();
-                                    $("#uploadForm")[0].reset();
-                                }
-                            },
-                            error: function (e) {
-                                $("#err").html(e).fadeIn();
-                            }
-                        });
-                    }));
+                }
+                SingleAnswerEdit.prototype.onChange = function (event) {
+                    console.log('onChange');
+                    var files = event.srcElement.files;
+                    console.log(files);
+                    this.service.makeFileRequest('/QualifierCMS/uploads', [], files).subscribe(function () {
+                        console.log('sent');
+                    });
                 };
                 SingleAnswerEdit = __decorate([
                     core_1.Component({
                         selector: 'question-single-answer-edit',
-                        template: "\n    <div class=\"container\">\n    <global-nav></global-nav>\n  <div class=\"row\">\n    <form id=\"uploadForm\" action=\"upload.php\" method=\"post\" class=\"col s12\">\n    <p>What would you like to edit</p>\n    \n    <div class=\"file-field input-field\">\n      <div class=\"btn\">\n        <span>File</span>\n        <input type=\"file\">\n      </div>\n      <div class=\"file-path-wrapper\">\n        <input class=\"file-path validate\" type=\"text\">\n      </div>\n    </div>\n    \n    \n  <div><input id=\"clickme\" type=\"submit\"></div>\n    </form>\n  </div>\n  </div>\n    ",
-                        directives: [global_navigation_1.GlobalNav]
+                        template: "\n\t  <div>\n\t    <input type=\"file\" (change)=\"onChange($event)\"/>\n\t  </div>\n\t",
+                        providers: [upload_service_1.UploadService]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [upload_service_1.UploadService])
                 ], SingleAnswerEdit);
                 return SingleAnswerEdit;
             }());
