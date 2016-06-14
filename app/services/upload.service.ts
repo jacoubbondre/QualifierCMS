@@ -10,13 +10,15 @@ export class UploadService {
     }).share();
   }
 
-  private makeFileRequest (url: string, params: string[], files: File[]): Observable {
+  public makeFileRequest (url: string, params: string[], files: File[]): Observable {
     return Observable.create(observer => {
         let formData: FormData = new FormData(),
             xhr: XMLHttpRequest = new XMLHttpRequest();
 
         for (let i = 0; i < files.length; i++) {
-            formData.append("uploads[]", files[i], files[i].name);
+            console.log(files[i]);
+            console.log(files[i].name);
+            formData.append("image", files[i], files[i].name);
         }
 
         xhr.onreadystatechange = () => {

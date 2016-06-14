@@ -33,7 +33,9 @@ System.register(['angular2/core', 'rxjs/Rx'], function(exports_1, context_1) {
                     return Rx_1.Observable.create(function (observer) {
                         var formData = new FormData(), xhr = new XMLHttpRequest();
                         for (var i = 0; i < files.length; i++) {
-                            formData.append("uploads[]", files[i], files[i].name);
+                            console.log(files[i]);
+                            console.log(files[i].name);
+                            formData.append("image", files[i], files[i].name);
                         }
                         xhr.onreadystatechange = function () {
                             if (xhr.readyState === 4) {
