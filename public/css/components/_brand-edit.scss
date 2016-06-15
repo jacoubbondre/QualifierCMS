@@ -1,0 +1,18 @@
+brand-edit {
+	.list-header {
+		@extend .red, .lighten-2;
+		@extend .white-text;
+		padding-left: 120px;
+		box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+		margin-bottom: 0;
+	}
+
+	h4 {
+		padding-top: 30px;
+	}
+
+	span {
+		display: block;
+		margin-bottom: 10px;
+	}
+}

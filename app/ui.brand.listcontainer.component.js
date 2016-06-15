@@ -42,14 +42,14 @@ UIBrandListContainer = __decorate([
         selector: 'ui-brand-list-container',
         template: `
       <div class="table-head table-row">
-          <div class="table-column table-title">Title</div>
-          <div class="table-column table-title">Last Modified</div>
+          <div class="table-column table-title"><p>Title</p></div>
+          <div class="table-column table-title"><p>Last Modified</p></div>
       </div>
 
       <div class="table-body" dnd-sortable-container [sortableData]="categories" [dropZones]="['brand']">
           <div class="table-row odd">
             <div class="table-column">
-              <div class="icon folder"><i class="material-icons folder-icon">folder</i></div>
+              <div class="icon folder-icon-wrapper"><div><i class="material-icons folder-icon">folder</i></div></div>
               <div class="title"><p>General Application Settings</p></div>
             </div>
             <div class="table-column">
@@ -64,10 +64,15 @@ UIBrandListContainer = __decorate([
                       <div class="icon"><i class="material-icons move-icon">menu</i></div>
                       <div class="icon folder-icon-wrapper"><div><i class="material-icons folder-icon">folder</i></div></div>
                       <div class="title"><p>{{category.category}}</p></div>
-                      <div class="icon"><i class="material-icons hide-icon {{hidden ? 'hidden' : ''}}" (click)="hidden ? show() : hide()">visibility</i></div>
-                      <a href="#" [routerLink]="['/EditCategory', {category: category.category}]">
-                        <div class="icon"><i class="material-icons edit-icon">edit</i></div>
-                      </a>
+
+                      <div class="icon-action-wrapper">
+                          <a class="waves-effect" href="#">
+                              <div class="icon"><i class="material-icons hide-icon {{hidden ? 'hidden' : ''}}" (click)="hidden ? show() : hide()">visibility</i></div>
+                          </a>
+                          <a class="waves-effect" href="#" [routerLink]="['/EditCategory', {category: category.category}]">
+                            <div class="icon"><i class="material-icons edit-icon">edit</i></div>
+                          </a>
+                      </div>
                   </div>
 
                   <div class="table-column">
@@ -81,11 +86,14 @@ UIBrandListContainer = __decorate([
                     <div class="table-column-wrapper subcategory {{listColorIsAlternate(subcategory) ? 'odd':'even'}}">
                         <div class="table-column">
                             <div class="icon"><i class="material-icons move-icon">menu</i></div>
-                            <div class="icon folder"><i class="material-icons folder-icon">folder</i></div>
+                            <div class="icon folder-icon-wrapper"><div><i class="material-icons folder-icon">folder</i></div></div>
                             <div class="title category"><p>{{subcategory.category}}</p></div>
-                            <a href="#" [routerLink]="['/EditCategory', {category: category.subcategories[i].category}]">
-                              <div class="icon"><i class="material-icons edit-icon">edit</i></div>
-                            </a>
+
+                            <div class="icon-action-wrapper">
+                                <a class="waves-effect waves-dark" href="#" [routerLink]="['/EditCategory', {category: category.subcategories[i].category}]">
+                                  <div class="icon"><i class="material-icons edit-icon">edit</i></div>
+                                </a>
+                            </div>
                         </div>
 
                         <div class="table-column">

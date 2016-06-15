@@ -1,14 +1,24 @@
-$listItemHeight: 50px;
+ui-brand-list-container {
+	a {
+		@extend .black-text, .text-lighten-2;
+	}
+}
 
-ui-brand-list-container, ui-category-list-container {
-	tr, td {
-		padding: 0;
+.table-head {
+	div.table-column:first-child {
+		padding-left: 120px;
 	}
-	tr.even, tr .category-container.even {
-		background-color: $evenUIListColor;
+
+	.table-column {
+		border-bottom: 1px solid $oddUIListColor;
 	}
-	tr.odd, tr .category-container.odd {
-		background-color: $oddUIListColor;
+
+	.table-title {
+		font-weight: 600;
+
+		p {
+			@include vertical-center();
+		}
 	}
 }
 
@@ -48,6 +58,10 @@ ui-brand-list-container, ui-category-list-container {
 		}
 	}
 
+	.table-column:first-child {
+		padding-left: 20px;
+	}
+
 	> .table-column, > .table-column-wrapper > .table-column {
 		float: left;
 	}
@@ -60,13 +74,18 @@ ui-brand-list-container, ui-category-list-container {
 		width: 20%;
 	}
 
+	.icon-action-wrapper {
+		float: right;
+		margin-right: 40px;
+	}
+
 	.icon, .title {
 		float: left;
 	}
 
 	.icon {
-		width: 50px;
-		height: 50px;
+		width: 60px;
+		height: 60px;
 		position: relative;
 
 		> i {
@@ -78,18 +97,25 @@ ui-brand-list-container, ui-category-list-container {
 	}
 
 	.icon.folder-icon-wrapper {
+		width: $listItemHeight;
+		height: $listItemHeight;
+		
 		> div {
 			position: relative;
 			background-color: #bbb;
 			border-radius: 100px;
-			width: 90%;
-			height: 90%;
-			// @include horizontal-vertical-
+			width: 60%;
+			height: 60%;
+			@include vertical-horizontal-center();
+		}
+
+		.folder-icon {
+			@include vertical-horizontal-center();
 		}
 	}
 
 	.subcategory .category-container, .title {
-		padding-left: $listItemHeight;
+		padding-left: 30px;
 	}
 
 	.title {

@@ -1,11 +1,10 @@
-@import 'reset.scss';
+@import 'materialize.scss';
 
 html, body {
 	height: 100%;
 	width: 100%;
 	padding: 0;
 	margin: 0;
-	font-family: 'Helvetica Neue', Helvetica, arial, sans-serif;
 }
 
 #container, #page{
@@ -26,15 +25,22 @@ main-app {
 	@import 'utils.scss';
 	@import 'animations.scss';
 
-	@import 'components/basicDataModifier.scss';
-	@import 'components/basicDataList.scss';
+	@import 'components/ui-navbar.scss';
+	@import 'components/brand-edit.scss';
 	@import 'components/ui-category-listcontainer.scss';
-	@import 'components/ui-category-listitem.scss';
 
 	.list-header {
 		h4 {
 			text-transform: capitalize;
 		}
+	}
+
+	p,div,span,h1,h2,h3,h4,h5,h6 {
+		margin: 0;
+		padding: 0;
+	}
+	a {
+		text-decoration: none;
 	}
 }
 
