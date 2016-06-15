@@ -1,13 +1,45 @@
-import {Component, Input, Inject, forwardRef} from '@angular/core'
-import {StoreService} from './services/store.service'
-import {Router, ROUTER_DIRECTIVES} from '@angular/router-deprecated'
-import {DND_DIRECTIVES} from 'ng2-dnd/ng2-dnd'
-
-declare var Materialize
-
-@Component({
-  selector: 'ui-brand-list-container',
-  template: `
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+const core_1 = require('@angular/core');
+const store_service_1 = require('./services/store.service');
+const router_deprecated_1 = require('@angular/router-deprecated');
+const ng2_dnd_1 = require('ng2-dnd/ng2-dnd');
+let UIBrandListContainer = class UIBrandListContainer {
+    constructor(store) {
+        this.store = store;
+        this.categories = [];
+        this._onConfigChanged = this.store.onConfigChange
+            .subscribe(config => this.onConfigChange(config));
+    }
+    onCategoryReorder() {
+        this.config.setCategories(this.categories);
+        this.store.saveConfig();
+    }
+    onSubcategoryReorder() {
+        this.config.setCategories(this.categories);
+        this.store.saveConfig();
+    }
+    listColorIsAlternate(cat) {
+        return this.config.listColorIsAlternate(this.categories, cat);
+    }
+    onConfigChange(config) {
+        this.config = config;
+        this.categories = config.getCategories();
+        console.log(this.categories);
+    }
+};
+UIBrandListContainer = __decorate([
+    core_1.Component({
+        selector: 'ui-brand-list-container',
+        template: `
       <div class="table-head table-row">
           <div class="table-column table-title"><p>Title</p></div>
           <div class="table-column table-title"><p>Last Modified</p></div>
@@ -18,12 +50,6 @@ declare var Materialize
             <div class="table-column">
               <div class="icon folder-icon-wrapper"><div><i class="material-icons folder-icon">folder</i></div></div>
               <div class="title"><p>General Application Settings</p></div>
-
-              <div class="icon-action-wrapper">
-                  <a class="waves-effect" href="#" [routerLink]="['/EditSettings']">
-                    <div class="icon"><i class="material-icons edit-icon">edit</i></div>
-                  </a>
-              </div>
             </div>
             <div class="table-column">
                 <div class="date"><p>Date</p></div>
@@ -79,36 +105,8 @@ declare var Materialize
           </div>
       </div>
     `,
-  directives: [DND_DIRECTIVES, ROUTER_DIRECTIVES]
-})
-export class UIBrandListContainer {
-  private _onConfigChanged: any
-  private config
-  private categories
-
-  constructor(private store: StoreService) {
-    this.categories = []
-    this._onConfigChanged = this.store.onConfigChange
-      .subscribe(config => this.onConfigChange(config))
-  }
-
-  onCategoryReorder() {
-    this.config.setCategories(this.categories)
-    this.store.saveConfig()
-  }
-
-  onSubcategoryReorder() {
-    this.config.setCategories(this.categories)
-    this.store.saveConfig()
-  }
-
-  listColorIsAlternate(cat) {
-    return this.config.listColorIsAlternate(this.categories, cat)
-  }
-
-  onConfigChange(config) {
-    this.config = config
-    this.categories = config.getCategories()
-    console.log(this.categories)
-  }
-}
+        directives: [ng2_dnd_1.DND_DIRECTIVES, router_deprecated_1.ROUTER_DIRECTIVES]
+    }), 
+    __metadata('design:paramtypes', [store_service_1.StoreService])
+], UIBrandListContainer);
+exports.UIBrandListContainer = UIBrandListContainer;

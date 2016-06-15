@@ -132,7 +132,7 @@ class Config {
 	getQuestionByName(name) {return name in this.config.questions ? this.config.questions[name] : false}
 
 	setAppText(apptext) {this.config.apptext = apptext}
-	getAppText() {return this.config.apptext}
+	getAppText() {return this._parseSettings()}
 
 	setAppTextByName(name, val) {if (name in this.config.apptext) this.config.apptext[name] = val}
 	getAppTextByName(name) {return name in this.config.apptext ? this.config.apptext[name] : false}
@@ -158,6 +158,17 @@ class Config {
 			}
 		}
 		return b
+	}
+
+	_parseSettings() {
+		var arr = []
+		for (var i in this.config.data.apptext) {
+			arr.push({
+				name: i,
+				value: this.config.data.apptext[i]
+			})
+		}
+		return arr
 	}
 
 	_parseQuestion(cat, tit) {
@@ -207,6 +218,7 @@ class Config {
 
 		for (var str in this.config.data.questions) {
 			let arr = str.split(" - ")
+			let question = this.config.data.questions[str]
 			let category = arr[0]
 			let subcategory, title
 			if (arr.length > 2) {
@@ -216,8 +228,13 @@ class Config {
 				title = arr[1]
 			}
 
+
 			if ((subcategory && subcategory.indexOf(cat) > -1) || category.indexOf(cat) > -1) {
-				questions.push(title)
+				questions.push({
+					question: question.text[0].question,
+					feature: title,
+					type: question.text[0].type
+				})
 			}
 		}
 		return questions

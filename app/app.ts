@@ -15,12 +15,13 @@ import {UINavbar} from './ui.navbar.component'
 import {BrandEdit} from './brand.edit.component'
 import {CategoryEdit} from './category.edit.component'
 import {QuestionEdit} from './question.edit.component'
+import {SettingsEdit} from './app-settings.edit.component'
 
 
 @Component({
 	selector: 'main-app',
 	providers: [HTTP_PROVIDERS],
-	directives: [UINavbar, ROUTER_DIRECTIVES, DND_DIRECTIVES, BrandEdit, CategoryEdit, QuestionEdit],
+	directives: [UINavbar, ROUTER_DIRECTIVES, DND_DIRECTIVES, BrandEdit, CategoryEdit, QuestionEdit, SettingsEdit],
     template: `
     	<ui-navbar></ui-navbar>
     	<router-outlet></router-outlet>
@@ -29,7 +30,8 @@ import {QuestionEdit} from './question.edit.component'
 @RouteConfig([
 	{ path: '/', component: BrandEdit, name: 'BrandEdit', useAsDefault: true },
 	{ path: '/edit/:category', component: CategoryEdit, name: 'EditCategory' },
-	{ path: '/edit/:category/:question', component: QuestionEdit, name: 'EditQuestion' }
+	{ path: '/edit/:category/:question', component: QuestionEdit, name: 'EditQuestion' },
+	{ path: '/edit/settings', component: SettingsEdit, name: 'EditSettings'}
 ])
 class AppComponent {
 	private _onConfigChanged

@@ -9,7 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-const ui_brand_listitem_component_1 = require('./ui.brand.listitem.component');
 const store_service_1 = require('./services/store.service');
 const router_deprecated_1 = require('@angular/router-deprecated');
 const ng2_dnd_1 = require('ng2-dnd/ng2-dnd');
@@ -51,6 +50,12 @@ UIBrandListContainer = __decorate([
             <div class="table-column">
               <div class="icon folder-icon-wrapper"><div><i class="material-icons folder-icon">folder</i></div></div>
               <div class="title"><p>General Application Settings</p></div>
+
+              <div class="icon-action-wrapper">
+                  <a class="waves-effect" href="#" [routerLink]="['/EditSettings']">
+                    <div class="icon"><i class="material-icons edit-icon">edit</i></div>
+                  </a>
+              </div>
             </div>
             <div class="table-column">
                 <div class="date"><p>Date</p></div>
@@ -61,7 +66,7 @@ UIBrandListContainer = __decorate([
 
               <div class="table-column-wrapper category {{listColorIsAlternate(category) ? 'odd':'even'}}">
                   <div class="table-column">
-                      <div class="icon"><i class="material-icons move-icon">menu</i></div>
+                      <div class="icon"><i class="material-icons move-icon">reorder</i></div>
                       <div class="icon folder-icon-wrapper"><div><i class="material-icons folder-icon">folder</i></div></div>
                       <div class="title"><p>{{category.category}}</p></div>
 
@@ -85,7 +90,7 @@ UIBrandListContainer = __decorate([
 
                     <div class="table-column-wrapper subcategory {{listColorIsAlternate(subcategory) ? 'odd':'even'}}">
                         <div class="table-column">
-                            <div class="icon"><i class="material-icons move-icon">menu</i></div>
+                            <div class="icon"><i class="material-icons move-icon">reorder</i></div>
                             <div class="icon folder-icon-wrapper"><div><i class="material-icons folder-icon">folder</i></div></div>
                             <div class="title category"><p>{{subcategory.category}}</p></div>
 
@@ -106,7 +111,7 @@ UIBrandListContainer = __decorate([
           </div>
       </div>
     `,
-        directives: [ui_brand_listitem_component_1.UIBrandListItem, ng2_dnd_1.DND_DIRECTIVES, router_deprecated_1.ROUTER_DIRECTIVES]
+        directives: [ng2_dnd_1.DND_DIRECTIVES, router_deprecated_1.ROUTER_DIRECTIVES]
     }), 
     __metadata('design:paramtypes', [store_service_1.StoreService])
 ], UIBrandListContainer);

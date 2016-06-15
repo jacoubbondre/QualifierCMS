@@ -1,9 +1,3 @@
-ui-brand-list-container {
-	a {
-		@extend .black-text, .text-lighten-2;
-	}
-}
-
 .table-head {
 	div.table-column:first-child {
 		padding-left: 120px;
@@ -53,7 +47,7 @@ ui-brand-list-container {
 		padding: 0;
 		margin: 0;
 
-		.date {
+		.date,.type {
 			@include vertical-center();
 		}
 	}
@@ -66,17 +60,13 @@ ui-brand-list-container {
 		float: left;
 	}
 
-	> .table-column:nth-child(1), > .table-column-wrapper > .table-column:nth-child(1) {
-		width: 80%;
-	}
-
-	> .table-column:nth-child(2), > .table-column-wrapper > .table-column:nth-child(2) {
-		width: 20%;
-	}
-
 	.icon-action-wrapper {
 		float: right;
 		margin-right: 40px;
+
+		.icon {
+			width: 60px;
+		}
 	}
 
 	.icon, .title {
@@ -84,8 +74,8 @@ ui-brand-list-container {
 	}
 
 	.icon {
-		width: 60px;
-		height: 60px;
+		width: $listItemHeight;
+		height: $listItemHeight;
 		position: relative;
 
 		> i {
@@ -97,9 +87,6 @@ ui-brand-list-container {
 	}
 
 	.icon.folder-icon-wrapper {
-		width: $listItemHeight;
-		height: $listItemHeight;
-		
 		> div {
 			position: relative;
 			background-color: #bbb;
@@ -119,8 +106,6 @@ ui-brand-list-container {
 	}
 
 	.title {
-		position: relative;
-		min-width: 60%;
 		height: inherit;
 	}
 
@@ -134,5 +119,56 @@ ui-brand-list-container {
 
 	.hide-icon.hidden {
 		color: $inactiveIconColor;
+	}
+}
+
+ui-brand-list-container, ui-category-list-container {
+	position: relative;
+
+	a {
+		@extend .black-text, .text-lighten-2;
+	}
+}
+
+ui-brand-list-container {
+	.table-row {
+		> .table-column:nth-child(1), > .table-column-wrapper > .table-column:nth-child(1) {
+			width: 80%;
+		}
+
+		> .table-column:nth-child(2), > .table-column-wrapper > .table-column:nth-child(2) {
+			width: 20%;
+		}
+
+		.title {
+			min-width: 60%;
+		}
+	}
+}
+
+ui-category-list-container {
+	.btn-floating {
+		@extend .red, .lighten-3;
+		position: absolute;
+		top: -28px;
+		left: 18px;
+	}
+
+	.table-row {
+		> .table-column:nth-child(1), > .table-column-wrapper > .table-column:nth-child(1) {
+			width: 40%;
+		}
+
+		> .table-column:nth-child(2), > .table-column-wrapper > .table-column:nth-child(2) {
+			width: 15%;
+		}
+
+		> .table-column:nth-child(3), > .table-column-wrapper > .table-column:nth-child(3) {
+			width: 30%;
+		}
+
+		> .table-column:nth-child(4), > .table-column-wrapper > .table-column:nth-child(4) {
+			width: 15%;
+		}
 	}
 }

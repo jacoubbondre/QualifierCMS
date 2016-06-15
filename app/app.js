@@ -24,6 +24,7 @@ const ui_navbar_component_1 = require('./ui.navbar.component');
 const brand_edit_component_1 = require('./brand.edit.component');
 const category_edit_component_1 = require('./category.edit.component');
 const question_edit_component_1 = require('./question.edit.component');
+const app_settings_edit_component_1 = require('./app-settings.edit.component');
 let AppComponent = class AppComponent {
     constructor(firebase, store, http, router, i18n, env, breakpoint, logger) {
         this.firebase = firebase;
@@ -54,7 +55,7 @@ AppComponent = __decorate([
     core_1.Component({
         selector: 'main-app',
         providers: [http_1.HTTP_PROVIDERS],
-        directives: [ui_navbar_component_1.UINavbar, router_deprecated_1.ROUTER_DIRECTIVES, ng2_dnd_1.DND_DIRECTIVES, brand_edit_component_1.BrandEdit, category_edit_component_1.CategoryEdit, question_edit_component_1.QuestionEdit],
+        directives: [ui_navbar_component_1.UINavbar, router_deprecated_1.ROUTER_DIRECTIVES, ng2_dnd_1.DND_DIRECTIVES, brand_edit_component_1.BrandEdit, category_edit_component_1.CategoryEdit, question_edit_component_1.QuestionEdit, app_settings_edit_component_1.SettingsEdit],
         template: `
     	<ui-navbar></ui-navbar>
     	<router-outlet></router-outlet>
@@ -63,7 +64,8 @@ AppComponent = __decorate([
     router_deprecated_1.RouteConfig([
         { path: '/', component: brand_edit_component_1.BrandEdit, name: 'BrandEdit', useAsDefault: true },
         { path: '/edit/:category', component: category_edit_component_1.CategoryEdit, name: 'EditCategory' },
-        { path: '/edit/:category/:question', component: question_edit_component_1.QuestionEdit, name: 'EditQuestion' }
+        { path: '/edit/:category/:question', component: question_edit_component_1.QuestionEdit, name: 'EditQuestion' },
+        { path: '/edit/settings', component: app_settings_edit_component_1.SettingsEdit, name: 'EditSettings' }
     ]), 
     __metadata('design:paramtypes', [firebase_service_1.FirebaseService, store_service_1.StoreService, http_1.Http, router_deprecated_1.Router, i18n_service_1.I18nService, environment_service_1.EnvironmentService, breakpoint_service_1.BreakpointService, logger_service_1.LoggerService])
 ], AppComponent);

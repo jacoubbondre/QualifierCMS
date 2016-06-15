@@ -16,16 +16,16 @@
 .materialize-red-text.text-lighten-4 {
   color: #f8c1c3 !important; }
 
-.materialize-red.lighten-3 {
+.materialize-red.lighten-3, main-app ui-category-list-container .materialize-red.btn-floating {
   background-color: #f3989b !important; }
 
 .materialize-red-text.text-lighten-3 {
   color: #f3989b !important; }
 
-.materialize-red.lighten-2, main-app brand-edit .materialize-red.list-header {
+.materialize-red.lighten-2, main-app brand-edit .materialize-red.list-header, main-app category-edit .materialize-red.list-header, main-app question-edit .materialize-red.list-header, main-app settings-edit .materialize-red.list-header {
   background-color: #ee6e73 !important; }
 
-.materialize-red-text.text-lighten-2, main-app ui-brand-list-container a.materialize-red-text {
+.materialize-red-text.text-lighten-2, main-app ui-brand-list-container a.materialize-red-text, main-app ui-category-list-container a.materialize-red-text {
   color: #ee6e73 !important; }
 
 .materialize-red.lighten-1 {
@@ -58,85 +58,85 @@
 .materialize-red-text.text-darken-4 {
   color: #8b1014 !important; }
 
-.red, main-app brand-edit .list-header {
+.red, main-app brand-edit .list-header, main-app category-edit .list-header, main-app question-edit .list-header, main-app settings-edit .list-header, main-app ui-category-list-container .btn-floating {
   background-color: #F44336 !important; }
 
 .red-text {
   color: #F44336 !important; }
 
-.red.lighten-5, main-app brand-edit .lighten-5.list-header {
+.red.lighten-5, main-app brand-edit .lighten-5.list-header, main-app category-edit .lighten-5.list-header, main-app question-edit .lighten-5.list-header, main-app settings-edit .lighten-5.list-header, main-app ui-category-list-container .lighten-5.btn-floating {
   background-color: #FFEBEE !important; }
 
 .red-text.text-lighten-5 {
   color: #FFEBEE !important; }
 
-.red.lighten-4, main-app brand-edit .lighten-4.list-header {
+.red.lighten-4, main-app brand-edit .lighten-4.list-header, main-app category-edit .lighten-4.list-header, main-app question-edit .lighten-4.list-header, main-app settings-edit .lighten-4.list-header, main-app ui-category-list-container .lighten-4.btn-floating {
   background-color: #FFCDD2 !important; }
 
 .red-text.text-lighten-4 {
   color: #FFCDD2 !important; }
 
-.red.lighten-3, main-app brand-edit .lighten-3.list-header {
+.red.lighten-3, main-app brand-edit .lighten-3.list-header, main-app category-edit .lighten-3.list-header, main-app question-edit .lighten-3.list-header, main-app settings-edit .lighten-3.list-header, main-app ui-category-list-container .btn-floating {
   background-color: #EF9A9A !important; }
 
 .red-text.text-lighten-3 {
   color: #EF9A9A !important; }
 
-.red.lighten-2, main-app brand-edit .list-header {
+.red.lighten-2, main-app brand-edit .list-header, main-app category-edit .list-header, main-app question-edit .list-header, main-app settings-edit .list-header, main-app ui-category-list-container .lighten-2.btn-floating {
   background-color: #E57373 !important; }
 
-.red-text.text-lighten-2, main-app ui-brand-list-container a.red-text {
+.red-text.text-lighten-2, main-app ui-brand-list-container a.red-text, main-app ui-category-list-container a.red-text {
   color: #E57373 !important; }
 
-.red.lighten-1, main-app brand-edit .lighten-1.list-header {
+.red.lighten-1, main-app brand-edit .lighten-1.list-header, main-app category-edit .lighten-1.list-header, main-app question-edit .lighten-1.list-header, main-app settings-edit .lighten-1.list-header, main-app ui-category-list-container .lighten-1.btn-floating {
   background-color: #EF5350 !important; }
 
 .red-text.text-lighten-1 {
   color: #EF5350 !important; }
 
-.red.darken-1, main-app brand-edit .darken-1.list-header {
+.red.darken-1, main-app brand-edit .darken-1.list-header, main-app category-edit .darken-1.list-header, main-app question-edit .darken-1.list-header, main-app settings-edit .darken-1.list-header, main-app ui-category-list-container .darken-1.btn-floating {
   background-color: #E53935 !important; }
 
 .red-text.text-darken-1 {
   color: #E53935 !important; }
 
-.red.darken-2, main-app brand-edit .darken-2.list-header {
+.red.darken-2, main-app brand-edit .darken-2.list-header, main-app category-edit .darken-2.list-header, main-app question-edit .darken-2.list-header, main-app settings-edit .darken-2.list-header, main-app ui-category-list-container .darken-2.btn-floating {
   background-color: #D32F2F !important; }
 
 .red-text.text-darken-2 {
   color: #D32F2F !important; }
 
-.red.darken-3, main-app brand-edit .darken-3.list-header {
+.red.darken-3, main-app brand-edit .darken-3.list-header, main-app category-edit .darken-3.list-header, main-app question-edit .darken-3.list-header, main-app settings-edit .darken-3.list-header, main-app ui-category-list-container .darken-3.btn-floating {
   background-color: #C62828 !important; }
 
 .red-text.text-darken-3 {
   color: #C62828 !important; }
 
-.red.darken-4, main-app brand-edit .darken-4.list-header {
+.red.darken-4, main-app brand-edit .darken-4.list-header, main-app category-edit .darken-4.list-header, main-app question-edit .darken-4.list-header, main-app settings-edit .darken-4.list-header, main-app ui-category-list-container .darken-4.btn-floating {
   background-color: #B71C1C !important; }
 
 .red-text.text-darken-4 {
   color: #B71C1C !important; }
 
-.red.accent-1, main-app brand-edit .accent-1.list-header {
+.red.accent-1, main-app brand-edit .accent-1.list-header, main-app category-edit .accent-1.list-header, main-app question-edit .accent-1.list-header, main-app settings-edit .accent-1.list-header, main-app ui-category-list-container .accent-1.btn-floating {
   background-color: #FF8A80 !important; }
 
 .red-text.text-accent-1 {
   color: #FF8A80 !important; }
 
-.red.accent-2, main-app brand-edit .accent-2.list-header {
+.red.accent-2, main-app brand-edit .accent-2.list-header, main-app category-edit .accent-2.list-header, main-app question-edit .accent-2.list-header, main-app settings-edit .accent-2.list-header, main-app ui-category-list-container .accent-2.btn-floating {
   background-color: #FF5252 !important; }
 
 .red-text.text-accent-2 {
   color: #FF5252 !important; }
 
-.red.accent-3, main-app brand-edit .accent-3.list-header {
+.red.accent-3, main-app brand-edit .accent-3.list-header, main-app category-edit .accent-3.list-header, main-app question-edit .accent-3.list-header, main-app settings-edit .accent-3.list-header, main-app ui-category-list-container .accent-3.btn-floating {
   background-color: #FF1744 !important; }
 
 .red-text.text-accent-3 {
   color: #FF1744 !important; }
 
-.red.accent-4, main-app brand-edit .accent-4.list-header {
+.red.accent-4, main-app brand-edit .accent-4.list-header, main-app category-edit .accent-4.list-header, main-app question-edit .accent-4.list-header, main-app settings-edit .accent-4.list-header, main-app ui-category-list-container .accent-4.btn-floating {
   background-color: #D50000 !important; }
 
 .red-text.text-accent-4 {
@@ -160,16 +160,16 @@
 .pink-text.text-lighten-4 {
   color: #f8bbd0 !important; }
 
-.pink.lighten-3 {
+.pink.lighten-3, main-app ui-category-list-container .pink.btn-floating {
   background-color: #f48fb1 !important; }
 
 .pink-text.text-lighten-3 {
   color: #f48fb1 !important; }
 
-.pink.lighten-2, main-app brand-edit .pink.list-header {
+.pink.lighten-2, main-app brand-edit .pink.list-header, main-app category-edit .pink.list-header, main-app question-edit .pink.list-header, main-app settings-edit .pink.list-header {
   background-color: #f06292 !important; }
 
-.pink-text.text-lighten-2, main-app ui-brand-list-container a.pink-text {
+.pink-text.text-lighten-2, main-app ui-brand-list-container a.pink-text, main-app ui-category-list-container a.pink-text {
   color: #f06292 !important; }
 
 .pink.lighten-1 {
@@ -244,16 +244,16 @@
 .purple-text.text-lighten-4 {
   color: #e1bee7 !important; }
 
-.purple.lighten-3 {
+.purple.lighten-3, main-app ui-category-list-container .purple.btn-floating {
   background-color: #ce93d8 !important; }
 
 .purple-text.text-lighten-3 {
   color: #ce93d8 !important; }
 
-.purple.lighten-2, main-app brand-edit .purple.list-header {
+.purple.lighten-2, main-app brand-edit .purple.list-header, main-app category-edit .purple.list-header, main-app question-edit .purple.list-header, main-app settings-edit .purple.list-header {
   background-color: #ba68c8 !important; }
 
-.purple-text.text-lighten-2, main-app ui-brand-list-container a.purple-text {
+.purple-text.text-lighten-2, main-app ui-brand-list-container a.purple-text, main-app ui-category-list-container a.purple-text {
   color: #ba68c8 !important; }
 
 .purple.lighten-1 {
@@ -328,16 +328,16 @@
 .deep-purple-text.text-lighten-4 {
   color: #d1c4e9 !important; }
 
-.deep-purple.lighten-3 {
+.deep-purple.lighten-3, main-app ui-category-list-container .deep-purple.btn-floating {
   background-color: #b39ddb !important; }
 
 .deep-purple-text.text-lighten-3 {
   color: #b39ddb !important; }
 
-.deep-purple.lighten-2, main-app brand-edit .deep-purple.list-header {
+.deep-purple.lighten-2, main-app brand-edit .deep-purple.list-header, main-app category-edit .deep-purple.list-header, main-app question-edit .deep-purple.list-header, main-app settings-edit .deep-purple.list-header {
   background-color: #9575cd !important; }
 
-.deep-purple-text.text-lighten-2, main-app ui-brand-list-container a.deep-purple-text {
+.deep-purple-text.text-lighten-2, main-app ui-brand-list-container a.deep-purple-text, main-app ui-category-list-container a.deep-purple-text {
   color: #9575cd !important; }
 
 .deep-purple.lighten-1 {
@@ -412,16 +412,16 @@
 .indigo-text.text-lighten-4 {
   color: #c5cae9 !important; }
 
-.indigo.lighten-3 {
+.indigo.lighten-3, main-app ui-category-list-container .indigo.btn-floating {
   background-color: #9fa8da !important; }
 
 .indigo-text.text-lighten-3 {
   color: #9fa8da !important; }
 
-.indigo.lighten-2, main-app brand-edit .indigo.list-header {
+.indigo.lighten-2, main-app brand-edit .indigo.list-header, main-app category-edit .indigo.list-header, main-app question-edit .indigo.list-header, main-app settings-edit .indigo.list-header {
   background-color: #7986cb !important; }
 
-.indigo-text.text-lighten-2, main-app ui-brand-list-container a.indigo-text {
+.indigo-text.text-lighten-2, main-app ui-brand-list-container a.indigo-text, main-app ui-category-list-container a.indigo-text {
   color: #7986cb !important; }
 
 .indigo.lighten-1 {
@@ -496,16 +496,16 @@
 .blue-text.text-lighten-4 {
   color: #BBDEFB !important; }
 
-.blue.lighten-3 {
+.blue.lighten-3, main-app ui-category-list-container .blue.btn-floating {
   background-color: #90CAF9 !important; }
 
 .blue-text.text-lighten-3 {
   color: #90CAF9 !important; }
 
-.blue.lighten-2, main-app brand-edit .blue.list-header {
+.blue.lighten-2, main-app brand-edit .blue.list-header, main-app category-edit .blue.list-header, main-app question-edit .blue.list-header, main-app settings-edit .blue.list-header {
   background-color: #64B5F6 !important; }
 
-.blue-text.text-lighten-2, main-app ui-brand-list-container a.blue-text {
+.blue-text.text-lighten-2, main-app ui-brand-list-container a.blue-text, main-app ui-category-list-container a.blue-text {
   color: #64B5F6 !important; }
 
 .blue.lighten-1 {
@@ -580,16 +580,16 @@
 .light-blue-text.text-lighten-4 {
   color: #b3e5fc !important; }
 
-.light-blue.lighten-3 {
+.light-blue.lighten-3, main-app ui-category-list-container .light-blue.btn-floating {
   background-color: #81d4fa !important; }
 
 .light-blue-text.text-lighten-3 {
   color: #81d4fa !important; }
 
-.light-blue.lighten-2, main-app brand-edit .light-blue.list-header {
+.light-blue.lighten-2, main-app brand-edit .light-blue.list-header, main-app category-edit .light-blue.list-header, main-app question-edit .light-blue.list-header, main-app settings-edit .light-blue.list-header {
   background-color: #4fc3f7 !important; }
 
-.light-blue-text.text-lighten-2, main-app ui-brand-list-container a.light-blue-text {
+.light-blue-text.text-lighten-2, main-app ui-brand-list-container a.light-blue-text, main-app ui-category-list-container a.light-blue-text {
   color: #4fc3f7 !important; }
 
 .light-blue.lighten-1 {
@@ -664,16 +664,16 @@
 .cyan-text.text-lighten-4 {
   color: #b2ebf2 !important; }
 
-.cyan.lighten-3 {
+.cyan.lighten-3, main-app ui-category-list-container .cyan.btn-floating {
   background-color: #80deea !important; }
 
 .cyan-text.text-lighten-3 {
   color: #80deea !important; }
 
-.cyan.lighten-2, main-app brand-edit .cyan.list-header {
+.cyan.lighten-2, main-app brand-edit .cyan.list-header, main-app category-edit .cyan.list-header, main-app question-edit .cyan.list-header, main-app settings-edit .cyan.list-header {
   background-color: #4dd0e1 !important; }
 
-.cyan-text.text-lighten-2, main-app ui-brand-list-container a.cyan-text {
+.cyan-text.text-lighten-2, main-app ui-brand-list-container a.cyan-text, main-app ui-category-list-container a.cyan-text {
   color: #4dd0e1 !important; }
 
 .cyan.lighten-1 {
@@ -748,16 +748,16 @@
 .teal-text.text-lighten-4 {
   color: #b2dfdb !important; }
 
-.teal.lighten-3 {
+.teal.lighten-3, main-app ui-category-list-container .teal.btn-floating {
   background-color: #80cbc4 !important; }
 
 .teal-text.text-lighten-3 {
   color: #80cbc4 !important; }
 
-.teal.lighten-2, main-app brand-edit .teal.list-header {
+.teal.lighten-2, main-app brand-edit .teal.list-header, main-app category-edit .teal.list-header, main-app question-edit .teal.list-header, main-app settings-edit .teal.list-header {
   background-color: #4db6ac !important; }
 
-.teal-text.text-lighten-2, main-app ui-brand-list-container a.teal-text {
+.teal-text.text-lighten-2, main-app ui-brand-list-container a.teal-text, main-app ui-category-list-container a.teal-text {
   color: #4db6ac !important; }
 
 .teal.lighten-1 {
@@ -832,16 +832,16 @@
 .green-text.text-lighten-4 {
   color: #C8E6C9 !important; }
 
-.green.lighten-3 {
+.green.lighten-3, main-app ui-category-list-container .green.btn-floating {
   background-color: #A5D6A7 !important; }
 
 .green-text.text-lighten-3 {
   color: #A5D6A7 !important; }
 
-.green.lighten-2, main-app brand-edit .green.list-header {
+.green.lighten-2, main-app brand-edit .green.list-header, main-app category-edit .green.list-header, main-app question-edit .green.list-header, main-app settings-edit .green.list-header {
   background-color: #81C784 !important; }
 
-.green-text.text-lighten-2, main-app ui-brand-list-container a.green-text {
+.green-text.text-lighten-2, main-app ui-brand-list-container a.green-text, main-app ui-category-list-container a.green-text {
   color: #81C784 !important; }
 
 .green.lighten-1 {
@@ -916,16 +916,16 @@
 .light-green-text.text-lighten-4 {
   color: #dcedc8 !important; }
 
-.light-green.lighten-3 {
+.light-green.lighten-3, main-app ui-category-list-container .light-green.btn-floating {
   background-color: #c5e1a5 !important; }
 
 .light-green-text.text-lighten-3 {
   color: #c5e1a5 !important; }
 
-.light-green.lighten-2, main-app brand-edit .light-green.list-header {
+.light-green.lighten-2, main-app brand-edit .light-green.list-header, main-app category-edit .light-green.list-header, main-app question-edit .light-green.list-header, main-app settings-edit .light-green.list-header {
   background-color: #aed581 !important; }
 
-.light-green-text.text-lighten-2, main-app ui-brand-list-container a.light-green-text {
+.light-green-text.text-lighten-2, main-app ui-brand-list-container a.light-green-text, main-app ui-category-list-container a.light-green-text {
   color: #aed581 !important; }
 
 .light-green.lighten-1 {
@@ -1000,16 +1000,16 @@
 .lime-text.text-lighten-4 {
   color: #f0f4c3 !important; }
 
-.lime.lighten-3 {
+.lime.lighten-3, main-app ui-category-list-container .lime.btn-floating {
   background-color: #e6ee9c !important; }
 
 .lime-text.text-lighten-3 {
   color: #e6ee9c !important; }
 
-.lime.lighten-2, main-app brand-edit .lime.list-header {
+.lime.lighten-2, main-app brand-edit .lime.list-header, main-app category-edit .lime.list-header, main-app question-edit .lime.list-header, main-app settings-edit .lime.list-header {
   background-color: #dce775 !important; }
 
-.lime-text.text-lighten-2, main-app ui-brand-list-container a.lime-text {
+.lime-text.text-lighten-2, main-app ui-brand-list-container a.lime-text, main-app ui-category-list-container a.lime-text {
   color: #dce775 !important; }
 
 .lime.lighten-1 {
@@ -1084,16 +1084,16 @@
 .yellow-text.text-lighten-4 {
   color: #fff9c4 !important; }
 
-.yellow.lighten-3 {
+.yellow.lighten-3, main-app ui-category-list-container .yellow.btn-floating {
   background-color: #fff59d !important; }
 
 .yellow-text.text-lighten-3 {
   color: #fff59d !important; }
 
-.yellow.lighten-2, main-app brand-edit .yellow.list-header {
+.yellow.lighten-2, main-app brand-edit .yellow.list-header, main-app category-edit .yellow.list-header, main-app question-edit .yellow.list-header, main-app settings-edit .yellow.list-header {
   background-color: #fff176 !important; }
 
-.yellow-text.text-lighten-2, main-app ui-brand-list-container a.yellow-text {
+.yellow-text.text-lighten-2, main-app ui-brand-list-container a.yellow-text, main-app ui-category-list-container a.yellow-text {
   color: #fff176 !important; }
 
 .yellow.lighten-1 {
@@ -1168,16 +1168,16 @@
 .amber-text.text-lighten-4 {
   color: #ffecb3 !important; }
 
-.amber.lighten-3 {
+.amber.lighten-3, main-app ui-category-list-container .amber.btn-floating {
   background-color: #ffe082 !important; }
 
 .amber-text.text-lighten-3 {
   color: #ffe082 !important; }
 
-.amber.lighten-2, main-app brand-edit .amber.list-header {
+.amber.lighten-2, main-app brand-edit .amber.list-header, main-app category-edit .amber.list-header, main-app question-edit .amber.list-header, main-app settings-edit .amber.list-header {
   background-color: #ffd54f !important; }
 
-.amber-text.text-lighten-2, main-app ui-brand-list-container a.amber-text {
+.amber-text.text-lighten-2, main-app ui-brand-list-container a.amber-text, main-app ui-category-list-container a.amber-text {
   color: #ffd54f !important; }
 
 .amber.lighten-1 {
@@ -1252,16 +1252,16 @@
 .orange-text.text-lighten-4 {
   color: #ffe0b2 !important; }
 
-.orange.lighten-3 {
+.orange.lighten-3, main-app ui-category-list-container .orange.btn-floating {
   background-color: #ffcc80 !important; }
 
 .orange-text.text-lighten-3 {
   color: #ffcc80 !important; }
 
-.orange.lighten-2, main-app brand-edit .orange.list-header {
+.orange.lighten-2, main-app brand-edit .orange.list-header, main-app category-edit .orange.list-header, main-app question-edit .orange.list-header, main-app settings-edit .orange.list-header {
   background-color: #ffb74d !important; }
 
-.orange-text.text-lighten-2, main-app ui-brand-list-container a.orange-text {
+.orange-text.text-lighten-2, main-app ui-brand-list-container a.orange-text, main-app ui-category-list-container a.orange-text {
   color: #ffb74d !important; }
 
 .orange.lighten-1 {
@@ -1336,16 +1336,16 @@
 .deep-orange-text.text-lighten-4 {
   color: #ffccbc !important; }
 
-.deep-orange.lighten-3 {
+.deep-orange.lighten-3, main-app ui-category-list-container .deep-orange.btn-floating {
   background-color: #ffab91 !important; }
 
 .deep-orange-text.text-lighten-3 {
   color: #ffab91 !important; }
 
-.deep-orange.lighten-2, main-app brand-edit .deep-orange.list-header {
+.deep-orange.lighten-2, main-app brand-edit .deep-orange.list-header, main-app category-edit .deep-orange.list-header, main-app question-edit .deep-orange.list-header, main-app settings-edit .deep-orange.list-header {
   background-color: #ff8a65 !important; }
 
-.deep-orange-text.text-lighten-2, main-app ui-brand-list-container a.deep-orange-text {
+.deep-orange-text.text-lighten-2, main-app ui-brand-list-container a.deep-orange-text, main-app ui-category-list-container a.deep-orange-text {
   color: #ff8a65 !important; }
 
 .deep-orange.lighten-1 {
@@ -1420,16 +1420,16 @@
 .brown-text.text-lighten-4 {
   color: #d7ccc8 !important; }
 
-.brown.lighten-3 {
+.brown.lighten-3, main-app ui-category-list-container .brown.btn-floating {
   background-color: #bcaaa4 !important; }
 
 .brown-text.text-lighten-3 {
   color: #bcaaa4 !important; }
 
-.brown.lighten-2, main-app brand-edit .brown.list-header {
+.brown.lighten-2, main-app brand-edit .brown.list-header, main-app category-edit .brown.list-header, main-app question-edit .brown.list-header, main-app settings-edit .brown.list-header {
   background-color: #a1887f !important; }
 
-.brown-text.text-lighten-2, main-app ui-brand-list-container a.brown-text {
+.brown-text.text-lighten-2, main-app ui-brand-list-container a.brown-text, main-app ui-category-list-container a.brown-text {
   color: #a1887f !important; }
 
 .brown.lighten-1 {
@@ -1480,16 +1480,16 @@
 .blue-grey-text.text-lighten-4 {
   color: #cfd8dc !important; }
 
-.blue-grey.lighten-3 {
+.blue-grey.lighten-3, main-app ui-category-list-container .blue-grey.btn-floating {
   background-color: #b0bec5 !important; }
 
 .blue-grey-text.text-lighten-3 {
   color: #b0bec5 !important; }
 
-.blue-grey.lighten-2, main-app brand-edit .blue-grey.list-header {
+.blue-grey.lighten-2, main-app brand-edit .blue-grey.list-header, main-app category-edit .blue-grey.list-header, main-app question-edit .blue-grey.list-header, main-app settings-edit .blue-grey.list-header {
   background-color: #90a4ae !important; }
 
-.blue-grey-text.text-lighten-2, main-app ui-brand-list-container a.blue-grey-text {
+.blue-grey-text.text-lighten-2, main-app ui-brand-list-container a.blue-grey-text, main-app ui-category-list-container a.blue-grey-text {
   color: #90a4ae !important; }
 
 .blue-grey.lighten-1 {
@@ -1540,16 +1540,16 @@
 .grey-text.text-lighten-4 {
   color: #f5f5f5 !important; }
 
-.grey.lighten-3 {
+.grey.lighten-3, main-app ui-category-list-container .grey.btn-floating {
   background-color: #eeeeee !important; }
 
 .grey-text.text-lighten-3 {
   color: #eeeeee !important; }
 
-.grey.lighten-2, main-app brand-edit .grey.list-header {
+.grey.lighten-2, main-app brand-edit .grey.list-header, main-app category-edit .grey.list-header, main-app question-edit .grey.list-header, main-app settings-edit .grey.list-header {
   background-color: #e0e0e0 !important; }
 
-.grey-text.text-lighten-2, main-app ui-brand-list-container a.grey-text {
+.grey-text.text-lighten-2, main-app ui-brand-list-container a.grey-text, main-app ui-category-list-container a.grey-text {
   color: #e0e0e0 !important; }
 
 .grey.lighten-1 {
@@ -1603,13 +1603,13 @@
 .black {
   background-color: #000000 !important; }
 
-.black-text, main-app ui-brand-list-container a {
+.black-text, main-app ui-brand-list-container a, main-app ui-category-list-container a {
   color: #000000 !important; }
 
 .white {
   background-color: #FFFFFF !important; }
 
-.white-text, main-app brand-edit .list-header {
+.white-text, main-app brand-edit .list-header, main-app category-edit .list-header, main-app question-edit .list-header, main-app settings-edit .list-header {
   color: #FFFFFF !important; }
 
 .transparent {
@@ -6226,19 +6226,19 @@ main-app {
     cursor: default; }
   main-app ui-navbar nav {
     box-shadow: initial; }
-  main-app brand-edit .list-header {
+  main-app brand-edit .list-header, main-app category-edit .list-header, main-app question-edit .list-header, main-app settings-edit .list-header {
     padding-left: 120px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     margin-bottom: 0; }
-  main-app brand-edit h4 {
+  main-app brand-edit h4, main-app category-edit h4, main-app question-edit h4, main-app settings-edit h4 {
     padding-top: 30px; }
-  main-app brand-edit span {
+  main-app brand-edit span, main-app category-edit span, main-app question-edit span, main-app settings-edit span {
     display: block;
     margin-bottom: 10px; }
   main-app .table-head div.table-column:first-child {
     padding-left: 120px; }
   main-app .table-head .table-column {
-    border-bottom: 1px solid #ccc; }
+    border-bottom: 1px solid #eee; }
   main-app .table-head .table-title {
     font-weight: 600; }
     main-app .table-head .table-title p {
@@ -6258,7 +6258,7 @@ main-app {
       main-app .table-row .table-column-wrapper.subcategory .table-column:first-child {
         padding-left: 50px; }
       main-app .table-row .table-column-wrapper.odd {
-        background: #ccc; }
+        background: #eee; }
       main-app .table-row .table-column-wrapper.even {
         background: #fff; }
     main-app .table-row .table-column {
@@ -6266,7 +6266,7 @@ main-app {
       height: 70px;
       padding: 0;
       margin: 0; }
-      main-app .table-row .table-column .date {
+      main-app .table-row .table-column .date, main-app .table-row .table-column .type {
         position: absolute;
         top: 50%;
         transform: translateY(-50%); }
@@ -6274,47 +6274,40 @@ main-app {
       padding-left: 20px; }
     main-app .table-row > .table-column, main-app .table-row > .table-column-wrapper > .table-column {
       float: left; }
-    main-app .table-row > .table-column:nth-child(1), main-app .table-row > .table-column-wrapper > .table-column:nth-child(1) {
-      width: 80%; }
-    main-app .table-row > .table-column:nth-child(2), main-app .table-row > .table-column-wrapper > .table-column:nth-child(2) {
-      width: 20%; }
     main-app .table-row .icon-action-wrapper {
       float: right;
       margin-right: 40px; }
+      main-app .table-row .icon-action-wrapper .icon {
+        width: 60px; }
     main-app .table-row .icon, main-app .table-row .title {
       float: left; }
     main-app .table-row .icon {
-      width: 60px;
-      height: 60px;
+      width: 70px;
+      height: 70px;
       position: relative; }
       main-app .table-row .icon > i {
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%); }
-    main-app .table-row .icon.folder-icon-wrapper {
-      width: 70px;
-      height: 70px; }
-      main-app .table-row .icon.folder-icon-wrapper > div {
-        position: relative;
-        background-color: #bbb;
-        border-radius: 100px;
-        width: 60%;
-        height: 60%;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%); }
-      main-app .table-row .icon.folder-icon-wrapper .folder-icon {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%); }
+    main-app .table-row .icon.folder-icon-wrapper > div {
+      position: relative;
+      background-color: #bbb;
+      border-radius: 100px;
+      width: 60%;
+      height: 60%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%); }
+    main-app .table-row .icon.folder-icon-wrapper .folder-icon {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%); }
     main-app .table-row .subcategory .category-container, main-app .table-row .title {
       padding-left: 30px; }
     main-app .table-row .title {
-      position: relative;
-      min-width: 60%;
       height: inherit; }
     main-app .table-row .title p {
       position: absolute;
@@ -6324,6 +6317,26 @@ main-app {
       cursor: pointer; }
     main-app .table-row .hide-icon.hidden {
       color: #ccc; }
+  main-app ui-brand-list-container, main-app ui-category-list-container {
+    position: relative; }
+  main-app ui-brand-list-container .table-row > .table-column:nth-child(1), main-app ui-brand-list-container .table-row > .table-column-wrapper > .table-column:nth-child(1) {
+    width: 80%; }
+  main-app ui-brand-list-container .table-row > .table-column:nth-child(2), main-app ui-brand-list-container .table-row > .table-column-wrapper > .table-column:nth-child(2) {
+    width: 20%; }
+  main-app ui-brand-list-container .table-row .title {
+    min-width: 60%; }
+  main-app ui-category-list-container .btn-floating {
+    position: absolute;
+    top: -28px;
+    left: 18px; }
+  main-app ui-category-list-container .table-row > .table-column:nth-child(1), main-app ui-category-list-container .table-row > .table-column-wrapper > .table-column:nth-child(1) {
+    width: 40%; }
+  main-app ui-category-list-container .table-row > .table-column:nth-child(2), main-app ui-category-list-container .table-row > .table-column-wrapper > .table-column:nth-child(2) {
+    width: 15%; }
+  main-app ui-category-list-container .table-row > .table-column:nth-child(3), main-app ui-category-list-container .table-row > .table-column-wrapper > .table-column:nth-child(3) {
+    width: 30%; }
+  main-app ui-category-list-container .table-row > .table-column:nth-child(4), main-app ui-category-list-container .table-row > .table-column-wrapper > .table-column:nth-child(4) {
+    width: 15%; }
   main-app .list-header h4 {
     text-transform: capitalize; }
   main-app p, main-app div, main-app span, main-app h1, main-app h2, main-app h3, main-app h4, main-app h5, main-app h6 {
