@@ -1,3 +1,20 @@
+@mixin vertical-center {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin horizontal-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@mixin vertical-horizontal-center {
+    @include horizontal-center();
+    @include vertical-center();
+}
+
 @mixin grow($amount) {
 	transform: scale($amount);
 	-webkit-transform: scale($amount);

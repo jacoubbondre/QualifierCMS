@@ -12,7 +12,7 @@ ui-category-list-item, ui-brand-list-item, ui-question-list-item {
 	.icon, .move-icon {
 		width: 30px;
 	}
-	.subcategory, .title {
+	.subcategory .category-container, .title {
 		padding-left: $listItemHeight;
 	}
 

@@ -1,8 +1,79 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+h1 {
+  font-size: 2em; }
+
+h2 {
+  font-size: 1.5em; }
+
+h3 {
+  font-size: 1.17em; }
+
+h4 {
+  font-size: 1.12em; }
+
+h5 {
+  font-size: .83em; }
+
+h6 {
+  font-size: .75em; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none; }
+
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+a {
+  text-decoration: none; }
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
 html, body {
   height: 100%;
   width: 100%;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  font-family: 'Helvetica Neue', Helvetica, arial, sans-serif; }
 
 #container, #page {
   height: 100%;
@@ -37,6 +108,74 @@ main-app {
       height: 20px; }
     main-app basic-data-list .selected {
       background-color: #187bea; }
+  main-app ui-brand-list-container tr, main-app ui-brand-list-container td, main-app ui-category-list-container tr, main-app ui-category-list-container td {
+    padding: 0; }
+  main-app ui-brand-list-container tr.even, main-app ui-brand-list-container tr .category-container.even, main-app ui-category-list-container tr.even, main-app ui-category-list-container tr .category-container.even {
+    background-color: #ccc; }
+  main-app ui-brand-list-container tr.odd, main-app ui-brand-list-container tr .category-container.odd, main-app ui-category-list-container tr.odd, main-app ui-category-list-container tr .category-container.odd {
+    background-color: #fff; }
+  main-app .table-body {
+    display: inline-block;
+    width: 100%; }
+  main-app .table-row {
+    width: 100%;
+    min-height: 50px;
+    position: relative; }
+    main-app .table-row .table-column-wrapper {
+      min-height: 50px;
+      width: 100%; }
+      main-app .table-row .table-column-wrapper.subcategory .table-column:first-child {
+        padding-left: 50px; }
+      main-app .table-row .table-column-wrapper.odd {
+        background: #fff; }
+      main-app .table-row .table-column-wrapper.even {
+        background: #ccc; }
+    main-app .table-row .table-column {
+      position: relative;
+      height: 50px;
+      padding: 0;
+      margin: 0; }
+      main-app .table-row .table-column .date {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%); }
+    main-app .table-row > .table-column, main-app .table-row > .table-column-wrapper > .table-column {
+      float: left; }
+    main-app .table-row > .table-column:nth-child(1), main-app .table-row > .table-column-wrapper > .table-column:nth-child(1) {
+      width: 80%; }
+    main-app .table-row > .table-column:nth-child(2), main-app .table-row > .table-column-wrapper > .table-column:nth-child(2) {
+      width: 20%; }
+    main-app .table-row .icon, main-app .table-row .title {
+      float: left; }
+    main-app .table-row .icon {
+      width: 50px;
+      height: 50px;
+      position: relative; }
+      main-app .table-row .icon > i {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%); }
+    main-app .table-row .icon.folder-icon-wrapper > div {
+      position: relative;
+      background-color: #bbb;
+      border-radius: 100px;
+      width: 90%;
+      height: 90%; }
+    main-app .table-row .subcategory .category-container, main-app .table-row .title {
+      padding-left: 50px; }
+    main-app .table-row .title {
+      position: relative;
+      min-width: 60%;
+      height: inherit; }
+    main-app .table-row .title p {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%); }
+    main-app .table-row .hide-icon {
+      cursor: pointer; }
+    main-app .table-row .hide-icon.hidden {
+      color: #ccc; }
   main-app ui-category-list-item, main-app ui-brand-list-item, main-app ui-question-list-item {
     width: 100%;
     height: 50px;
@@ -45,7 +184,7 @@ main-app {
       float: left; }
     main-app ui-category-list-item .icon, main-app ui-category-list-item .move-icon, main-app ui-brand-list-item .icon, main-app ui-brand-list-item .move-icon, main-app ui-question-list-item .icon, main-app ui-question-list-item .move-icon {
       width: 30px; }
-    main-app ui-category-list-item .subcategory, main-app ui-category-list-item .title, main-app ui-brand-list-item .subcategory, main-app ui-brand-list-item .title, main-app ui-question-list-item .subcategory, main-app ui-question-list-item .title {
+    main-app ui-category-list-item .subcategory .category-container, main-app ui-category-list-item .title, main-app ui-brand-list-item .subcategory .category-container, main-app ui-brand-list-item .title, main-app ui-question-list-item .subcategory .category-container, main-app ui-question-list-item .title {
       padding-left: 50px; }
     main-app ui-category-list-item .title, main-app ui-brand-list-item .title, main-app ui-question-list-item .title {
       min-width: 60%; }

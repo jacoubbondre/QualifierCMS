@@ -1,0 +1,112 @@
+$listItemHeight: 50px;
+
+ui-brand-list-container, ui-category-list-container {
+	tr, td {
+		padding: 0;
+	}
+	tr.even, tr .category-container.even {
+		background-color: $evenUIListColor;
+	}
+	tr.odd, tr .category-container.odd {
+		background-color: $oddUIListColor;
+	}
+}
+
+.table-body {
+	display: inline-block;
+	width: 100%;
+}
+
+.table-row {
+	width: 100%;
+	min-height: $listItemHeight;
+	position: relative;
+
+	.table-column-wrapper {
+		min-height: $listItemHeight;
+		width: 100%;
+
+		&.subcategory .table-column:first-child {
+			padding-left: 50px;
+		}
+		&.odd {
+			background: $oddUIListColor;
+		}
+		&.even {
+			background: $evenUIListColor;
+		}
+	}
+
+	.table-column {
+		position: relative;
+		height: $listItemHeight;
+		padding: 0;
+		margin: 0;
+
+		.date {
+			@include vertical-center();
+		}
+	}
+
+	> .table-column, > .table-column-wrapper > .table-column {
+		float: left;
+	}
+
+	> .table-column:nth-child(1), > .table-column-wrapper > .table-column:nth-child(1) {
+		width: 80%;
+	}
+
+	> .table-column:nth-child(2), > .table-column-wrapper > .table-column:nth-child(2) {
+		width: 20%;
+	}
+
+	.icon, .title {
+		float: left;
+	}
+
+	.icon {
+		width: 50px;
+		height: 50px;
+		position: relative;
+
+		> i {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+		}
+	}
+
+	.icon.folder-icon-wrapper {
+		> div {
+			position: relative;
+			background-color: #bbb;
+			border-radius: 100px;
+			width: 90%;
+			height: 90%;
+			// @include horizontal-vertical-
+		}
+	}
+
+	.subcategory .category-container, .title {
+		padding-left: $listItemHeight;
+	}
+
+	.title {
+		position: relative;
+		min-width: 60%;
+		height: inherit;
+	}
+
+	.title p {
+		@include vertical-center();
+	}
+
+	.hide-icon {
+		cursor: pointer;
+	}
+
+	.hide-icon.hidden {
+		color: $inactiveIconColor;
+	}
+}

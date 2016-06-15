@@ -17,7 +17,7 @@ declare var Materialize;
       </div>
 
       <div class="subcategory" *ngIf="!!data.subcategories && data.subcategories.length" dnd-sortable-container [sortableData]="data.subcategories" [dropZones]="['test']">
-        <div class="category-container" *ngFor="let subcategory of data.subcategories; let i = index" [sortableIndex]="i" dnd-sortable (onDragSuccess)="onDragSuccess()">
+        <div class="category-container {{listColorIsAlternate(subcategory) ? 'odd':'even'}}" *ngFor="let subcategory of data.subcategories; let i = index" [sortableIndex]="i" dnd-sortable (onDragSuccess)="onDragSuccess()">
               <div class="icon"><i class="material-icons move-icon" *ngIf="movable">menu</i></div>
               <div class="title category">{{subcategory.category}}</div>
               <a href="#" [routerLink]="['/EditCategory', {category: data.subcategories[i].category}]">
@@ -30,6 +30,8 @@ declare var Materialize;
 })
 export class UIBrandListItem {
   @Input() data
+  @Input() categories
+  @Input() config
   @Output() onOrderChange = new EventEmitter()
 
   private movable
@@ -63,5 +65,9 @@ export class UIBrandListItem {
   private navigateToCategory(category: string) {
     console.log(category)
     this.router.navigate(['Category', {category: category}])
+  }
+
+  listColorIsAlternate(cat) {
+    return this.config.listColorIsAlternate(this.categories, cat)
   }
 }
