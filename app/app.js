@@ -20,6 +20,7 @@ const breakpoint_service_1 = require('./services/breakpoint.service');
 const core_1 = require('@angular/core');
 const router_deprecated_1 = require('@angular/router-deprecated');
 const ng2_dnd_1 = require('ng2-dnd/ng2-dnd');
+const preloader_component_1 = require('./preloader.component');
 const ui_navbar_component_1 = require('./ui.navbar.component');
 const brand_edit_component_1 = require('./brand.edit.component');
 const category_edit_component_1 = require('./category.edit.component');
@@ -62,7 +63,8 @@ AppComponent = __decorate([
 	`
     }),
     router_deprecated_1.RouteConfig([
-        { path: '/', component: brand_edit_component_1.BrandEdit, name: 'BrandEdit', useAsDefault: true },
+        { path: '/', component: preloader_component_1.Preloader, name: 'Preloader', useAsDefault: true },
+        { path: '/edit', component: brand_edit_component_1.BrandEdit, name: 'BrandEdit' },
         { path: '/edit/:category', component: category_edit_component_1.CategoryEdit, name: 'EditCategory' },
         { path: '/edit/:category/:question', component: question_edit_component_1.QuestionEdit, name: 'EditQuestion' },
         { path: '/edit/settings', component: app_settings_edit_component_1.SettingsEdit, name: 'EditSettings' }

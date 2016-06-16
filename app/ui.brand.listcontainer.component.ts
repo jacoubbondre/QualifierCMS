@@ -20,7 +20,7 @@ declare var Materialize
               <div class="title"><p>General Application Settings</p></div>
 
               <div class="icon-action-wrapper">
-                  <a class="waves-effect" href="#" [routerLink]="['/EditSettings']">
+                  <a class="waves-effect tooltipped" href="#" [routerLink]="['/EditSettings']" data-position="left" data-delay="50" data-tooltip="edit">
                     <div class="icon"><i class="material-icons edit-icon">edit</i></div>
                   </a>
               </div>
@@ -39,10 +39,10 @@ declare var Materialize
                       <div class="title"><p>{{category.category}}</p></div>
 
                       <div class="icon-action-wrapper">
-                          <a class="waves-effect" href="#">
+                          <a class="waves-effect tooltipped" href="#" data-position="left" data-delay="50" [attr.data-tooltip]="hidden ? 'show':'hide'">
                               <div class="icon"><i class="material-icons hide-icon {{hidden ? 'hidden' : ''}}" (click)="hidden ? show() : hide()">visibility</i></div>
                           </a>
-                          <a class="waves-effect" href="#" [routerLink]="['/EditCategory', {category: category.category}]">
+                          <a class="waves-effect tooltipped" href="#" [routerLink]="['/EditCategory', {category: category.category}]"  data-position="left" data-delay="50" data-tooltip="edit">
                             <div class="icon"><i class="material-icons edit-icon">edit</i></div>
                           </a>
                       </div>
@@ -63,7 +63,7 @@ declare var Materialize
                             <div class="title category"><p>{{subcategory.category}}</p></div>
 
                             <div class="icon-action-wrapper">
-                                <a class="waves-effect waves-dark" href="#" [routerLink]="['/EditCategory', {category: category.subcategories[i].category}]">
+                                <a class="waves-effect waves-dark tooltipped" href="#" [routerLink]="['/EditCategory', {category: category.subcategories[i].category}]" data-position="left" data-delay="50" data-tooltip="edit">
                                   <div class="icon"><i class="material-icons edit-icon">edit</i></div>
                                 </a>
                             </div>
@@ -92,6 +92,10 @@ export class UIBrandListContainer {
       .subscribe(config => this.onConfigChange(config))
   }
 
+  ngOnInit() {
+    this.onConfigChange(this.store.getConfig(undefined))
+  }
+
   onCategoryReorder() {
     this.config.setCategories(this.categories)
     this.store.saveConfig()
@@ -107,8 +111,9 @@ export class UIBrandListContainer {
   }
 
   onConfigChange(config) {
+    console.log(config)
     this.config = config
     this.categories = config.getCategories()
-    console.log(this.categories)
+    setTimeout(function() { $('.tooltipped').tooltip({ delay: 50 }) }, 500)  //TODO: have this update on a lifecycle event, probably ngDoCheck
   }
 }

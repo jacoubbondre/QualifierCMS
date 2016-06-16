@@ -11,6 +11,7 @@ import {Component, Inject} from '@angular/core'
 import { RouteConfig, Router, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated'
 import {DND_PROVIDERS, DND_DIRECTIVES} from 'ng2-dnd/ng2-dnd';
 
+import {Preloader} from './preloader.component'
 import {UINavbar} from './ui.navbar.component'
 import {BrandEdit} from './brand.edit.component'
 import {CategoryEdit} from './category.edit.component'
@@ -28,7 +29,8 @@ import {SettingsEdit} from './app-settings.edit.component'
 	`
 })
 @RouteConfig([
-	{ path: '/', component: BrandEdit, name: 'BrandEdit', useAsDefault: true },
+	{ path: '/', component: Preloader, name: 'Preloader', useAsDefault: true },
+	{ path: '/edit', component: BrandEdit, name: 'BrandEdit'},
 	{ path: '/edit/:category', component: CategoryEdit, name: 'EditCategory' },
 	{ path: '/edit/:category/:question', component: QuestionEdit, name: 'EditQuestion' },
 	{ path: '/edit/settings', component: SettingsEdit, name: 'EditSettings'}

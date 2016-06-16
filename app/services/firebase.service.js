@@ -29,15 +29,6 @@ let FirebaseService = class FirebaseService {
         }
         this.getDefaultConfig();
     }
-    saveToFile(data, name) {
-        let headers = new http_1.Headers().append('Content-Type', 'application/json');
-        let tmpStr = 'data=' + (JSON.stringify(data));
-        console.log('save to file');
-        this.http.post('http://localhost/QualifierCMS/save.php', tmpStr)
-            .subscribe(res => {
-            console.log(res);
-        }, () => console.log('Auth Complete'));
-    }
     saveConfig(configs, data, id) {
         if (typeof id === 'undefined' || !(id in configs) || !configs) {
             console.log('creating new');
@@ -62,7 +53,6 @@ let FirebaseService = class FirebaseService {
                 data: data.data
             });
         }
-        this.saveToFile(data, id);
     }
     getDefaultConfig() {
         let self = this;

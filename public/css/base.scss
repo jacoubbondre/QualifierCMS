@@ -25,6 +25,8 @@ main-app {
 	@import 'utils.scss';
 	@import 'animations.scss';
 
+	@import 'components/_preloader.scss';
+	@import 'components/materialize-custom.scss';
 	@import 'components/ui-navbar.scss';
 	@import 'components/brand-edit.scss';
 	@import 'components/ui-listcontainer.scss';

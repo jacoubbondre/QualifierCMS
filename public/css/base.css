@@ -6224,6 +6224,13 @@ main-app {
     display: block; }
   main-app .selected {
     cursor: default; }
+  main-app preloader .progress-wrapper {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%); }
+  main-app .modal h4 {
+    margin-bottom: 10px; }
   main-app ui-navbar nav {
     box-shadow: initial; }
   main-app brand-edit .list-header, main-app category-edit .list-header, main-app question-edit .list-header, main-app settings-edit .list-header {

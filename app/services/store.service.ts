@@ -148,12 +148,12 @@ class Config {
 		for (var cat in categories) {
 			b = !b
 
-			if (categories[cat].category == category.category) { console.log(category.category, b); return b }
+			if (categories[cat].category == category.category) return b
 
 			if ('subcategories' in categories[cat]) {
 				for (var kitten in categories[cat].subcategories) {
 					b = !b
-					if (categories[cat].subcategories[kitten].category == category.category) { console.log(category.category, b, 'sub'); return b }
+					if (categories[cat].subcategories[kitten].category == category.category) return b
 				}
 			}
 		}

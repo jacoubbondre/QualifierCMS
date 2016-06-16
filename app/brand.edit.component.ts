@@ -17,6 +17,7 @@ declare var Materialize;
   directives: [UIBrandListContainer],
   pipes: [InternationalizationPipe]
 })
+
 export class BrandEdit {
   private _onConfigChanged: any
   private brand: string
@@ -33,4 +34,6 @@ export class BrandEdit {
   onConfigChange(config) {
     if (config) this.brand = config.getBrand()
   }
+
+
 }

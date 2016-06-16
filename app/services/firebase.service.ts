@@ -28,20 +28,6 @@ export class FirebaseService {
 	public onGetConfigs: EventEmitter<any>
 	public onGetDefaultConfig: EventEmitter<any>
 
-	private saveToFile(data: any, name: string) {
-		let headers = new Headers().append('Content-Type', 'application/json')
-
-		let tmpStr = 'data=' + (JSON.stringify(data))
-		console.log('save to file')
-		this.http.post('http://localhost/QualifierCMS/save.php', tmpStr)
-			.subscribe(
-				res => {
-					console.log(res)
-				},
-				() => console.log('Auth Complete')
-			)
-	}
-
 	public saveConfig(configs: any, data: any, id: string) {
 		if (typeof id === 'undefined' || !(id in configs) || !configs) {
 			console.log('creating new')
@@ -65,8 +51,6 @@ export class FirebaseService {
 				data: data.data
 			})
 		}
-
-		this.saveToFile(data, id)
 	}
 
 	public getDefaultConfig() {

@@ -16,8 +16,8 @@ declare var Materialize;
     </div>
     <ui-app-settings [settings]="settings" [dirty]="dirty" (isDirty)="gotDirty()"></ui-app-settings>
     <div class="row list-footer">
-      <a class="btn-large {{dirty ? '' : 'disabled waves-effect waves-light'}}" (click)="onCommit()"><i class="material-icons left">arrow_downward</i>commit changes</a>
-      <a class="btn-large {{dirty ? '' : 'disabled waves-effect waves-light'}}" (click)="onRevert()"><i class="material-icons left">undo</i>revert changes</a>
+      <a class="btn-large {{dirty ? 'waves-effect waves-light' : 'disabled'}}" (click)="onCommit()"><i class="material-icons left">arrow_downward</i>commit changes</a>
+      <a class="btn-large {{dirty ? 'waves-effect waves-light' : 'disabled'}}" (click)="onRevert()"><i class="material-icons left">undo</i>revert changes</a>
     </div>
     `,
     directives: [UIAppSettings],
@@ -37,10 +37,6 @@ export class SettingsEdit {
     this.cleanSettings = []
     this._onConfigChanged = this.store.onConfigChange
       .subscribe(config => this.onConfigChange(config))
-    this.config = this.store.getConfig(undefined)
-  }
-
-  ngOnInit() {
     this.onConfigChange(this.store.getConfig(undefined))
   }
 
