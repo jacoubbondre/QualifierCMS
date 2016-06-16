@@ -1,47 +1,38 @@
-import {Component, Input, Inject, Pipe, PipeTransform, Injectable} from '@angular/core'
-import {SettingsFilterPipe} from './pipes/settingsFilter.pipe'
+import {Component, Input, Inject, Pipe, PipeTransform, Injectable, Output, EventEmitter} from '@angular/core'
+import {EditableSettingsPipe} from './pipes/settingsFilter.pipe'
+import {DisplayNameTranslator} from './settings'
 
 declare var Materialize
 
 @Component({
   selector: 'ui-app-settings',
   template: `
-      <div class="row">
     <form class="col s12">
-
-      <div class="row" *ngFor="let setting of settings | settingsFilter">
-        <div class="input-field col s6">
-          <input placeholder="{{setting.value}}" id="{{setting.name}}" type="text" class="validate">
-          <label [attr.data-for]="setting.name">{{translation.get(setting.name)}}</label>
-        </div>
+      <div *ngFor="let setting of settings | editableSettings">
+          <div class="row">
+            <div class="input-field col s10 offset-s1 l6 offset-l3">
+              <input id="{{setting.name}}" (ngModelChange)="setAsDirty()" [(ngModel)]="setting.value" type="text">
+              <label class="active" [attr.data-for]="setting.name">{{displayName.getApplicationSetting(setting.name)}}</label>
+            </div>
+          </div>
       </div>
-
     </form>
-  </div>
     `,
-  pipes: [SettingsFilterPipe]
+  pipes: [EditableSettingsPipe]
 })
 export class UIAppSettings {
   private _onConfigChanged: any
-  private translation = new Translator()
+  private displayName = new DisplayNameTranslator()
   @Input() settings
+  @Input() dirty
+  @Output() isDirty = new EventEmitter
 
   ngAfterViewInit() {
     Materialize.updateTextFields()
   }
-}
 
-class Translator {
-  private translations = {
-    "appdescription": "Application description",
-    "apptitle": "Application title",
-    "backtoresults": "'Back to results'"
-  }
-
-  public get(val:string) {
-    if (val in this.translations) {
-      return this.translations[val]
-    }
-    return val
+  setAsDirty() {
+    console.log('dirty')
+    this.isDirty.emit(undefined)
   }
 }

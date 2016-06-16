@@ -116,7 +116,7 @@ class Config {
     setQuestionByName(name, question) { if (name in this.config.questions)
         this.config.questions[name] = question; }
     getQuestionByName(name) { return name in this.config.questions ? this.config.questions[name] : false; }
-    setAppText(apptext) { this.config.apptext = apptext; }
+    setAppText(apptext) { this._setSettings(apptext); }
     getAppText() { return this._parseSettings(); }
     setAppTextByName(name, val) { if (name in this.config.apptext)
         this.config.apptext[name] = val; }
@@ -155,6 +155,14 @@ class Config {
             });
         }
         return arr;
+    }
+    _setSettings(settings) {
+        var obj = {};
+        for (var i in settings) {
+            var setting = settings[i];
+            obj[setting.name] = setting.value;
+        }
+        this.config.data.apptext = obj;
     }
     _parseQuestion(cat, tit) {
         let question;

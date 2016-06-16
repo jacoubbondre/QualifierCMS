@@ -9,19 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-let SettingsFilterPipe = class SettingsFilterPipe {
+const settings_1 = require('../settings');
+let EditableSettingsPipe = class EditableSettingsPipe {
     constructor() {
-        this.ignoredSettings = ['backtoresults'];
+        this.settings = settings_1.Settings.get();
     }
     transform(items) {
-        return items.filter(item => this.ignoredSettings.indexOf(item.name) == -1);
+        return items.filter(item => this.settings['application_settings'].uneditable.indexOf(item.name) == -1);
     }
 };
-SettingsFilterPipe = __decorate([
+EditableSettingsPipe = __decorate([
     core_1.Pipe({
-        name: 'settingsFilter'
+        name: 'editableSettings'
     }),
     core_1.Injectable(), 
     __metadata('design:paramtypes', [])
-], SettingsFilterPipe);
-exports.SettingsFilterPipe = SettingsFilterPipe;
+], EditableSettingsPipe);
+exports.EditableSettingsPipe = EditableSettingsPipe;

@@ -13,21 +13,44 @@ const ui_app_settings_component_1 = require('./ui.app-settings.component');
 const store_service_1 = require('./services/store.service');
 const router_deprecated_1 = require('@angular/router-deprecated');
 const i18n_pipe_1 = require('./pipes/i18n.pipe');
+const _ = require('lodash');
 let SettingsEdit = class SettingsEdit {
     constructor(store, params) {
         this.store = store;
         this.params = params;
+        this.dirty = false;
         this.settings = [];
+        this.cleanSettings = [];
         this._onConfigChanged = this.store.onConfigChange
             .subscribe(config => this.onConfigChange(config));
+        this.config = this.store.getConfig(undefined);
     }
     ngOnInit() {
         this.onConfigChange(this.store.getConfig(undefined));
     }
+    onCommit() {
+        if (this.dirty) {
+            console.log(this.settings);
+            this.config.setAppText(this.settings);
+            this.store.saveConfig();
+        }
+    }
+    onRevert() {
+        if (this.dirty) {
+            this.settings = _.map(this.cleanSettings, _.clone);
+            this.dirty = false;
+        }
+    }
+    gotDirty() {
+        this.dirty = true;
+    }
     onConfigChange(config) {
         if (config) {
-            this.settings = config.getAppText();
+            this.config = config;
+            this.cleanSettings = config.getAppText();
+            this.settings = _.map(this.cleanSettings, _.clone);
             this.brand = config.getBrand();
+            this.dirty = false;
         }
     }
 };
@@ -39,7 +62,11 @@ SettingsEdit = __decorate([
       <h4>{{brand}} - {{'brand' | translate}} - General Application Settings</h4>
       <span>{{'What would you like to edit?' | translate}}</span>
     </div>
-    <ui-app-settings [settings]="settings"></ui-app-settings>
+    <ui-app-settings [settings]="settings" [dirty]="dirty" (isDirty)="gotDirty()"></ui-app-settings>
+    <div class="row list-footer">
+      <a class="btn-large {{dirty ? '' : 'disabled waves-effect waves-light'}}" (click)="onCommit()"><i class="material-icons left">arrow_downward</i>commit changes</a>
+      <a class="btn-large {{dirty ? '' : 'disabled waves-effect waves-light'}}" (click)="onRevert()"><i class="material-icons left">undo</i>revert changes</a>
+    </div>
     `,
         directives: [ui_app_settings_component_1.UIAppSettings],
         pipes: [i18n_pipe_1.InternationalizationPipe]

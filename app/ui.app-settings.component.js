@@ -10,52 +10,49 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require('@angular/core');
 const settingsFilter_pipe_1 = require('./pipes/settingsFilter.pipe');
+const settings_1 = require('./settings');
 let UIAppSettings = class UIAppSettings {
     constructor() {
-        this.translation = new Translator();
+        this.displayName = new settings_1.DisplayNameTranslator();
+        this.isDirty = new core_1.EventEmitter;
     }
     ngAfterViewInit() {
         Materialize.updateTextFields();
+    }
+    setAsDirty() {
+        console.log('dirty');
+        this.isDirty.emit(undefined);
     }
 };
 __decorate([
     core_1.Input(), 
     __metadata('design:type', Object)
 ], UIAppSettings.prototype, "settings", void 0);
+__decorate([
+    core_1.Input(), 
+    __metadata('design:type', Object)
+], UIAppSettings.prototype, "dirty", void 0);
+__decorate([
+    core_1.Output(), 
+    __metadata('design:type', Object)
+], UIAppSettings.prototype, "isDirty", void 0);
 UIAppSettings = __decorate([
     core_1.Component({
         selector: 'ui-app-settings',
         template: `
-      <div class="row">
     <form class="col s12">
-
-      <div class="row" *ngFor="let setting of settings | settingsFilter">
-        <div class="input-field col s6">
-          <input placeholder="{{setting.value}}" id="{{setting.name}}" type="text" class="validate">
-          <label [attr.data-for]="setting.name">{{translation.get(setting.name)}}</label>
-        </div>
+      <div *ngFor="let setting of settings | editableSettings">
+          <div class="row">
+            <div class="input-field col s10 offset-s1 l6 offset-l3">
+              <input id="{{setting.name}}" (ngModelChange)="setAsDirty()" [(ngModel)]="setting.value" type="text">
+              <label class="active" [attr.data-for]="setting.name">{{displayName.getApplicationSetting(setting.name)}}</label>
+            </div>
+          </div>
       </div>
-
     </form>
-  </div>
     `,
-        pipes: [settingsFilter_pipe_1.SettingsFilterPipe]
+        pipes: [settingsFilter_pipe_1.EditableSettingsPipe]
     }), 
     __metadata('design:paramtypes', [])
 ], UIAppSettings);
 exports.UIAppSettings = UIAppSettings;
-class Translator {
-    constructor() {
-        this.translations = {
-            "appdescription": "Application description",
-            "apptitle": "Application title",
-            "backtoresults": "'Back to results'"
-        };
-    }
-    get(val) {
-        if (val in this.translations) {
-            return this.translations[val];
-        }
-        return val;
-    }
-}

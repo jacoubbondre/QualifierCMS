@@ -7,6 +7,25 @@ brand-edit, category-edit, question-edit, settings-edit {
 		margin-bottom: 0;
 	}
 
+	.list-footer {
+		width: 100%;
+		position: fixed;
+		bottom: 0;
+		margin-bottom: 0;
+	}
+
+	.list-footer .btn, .list-footer .btn-large {
+		width: 50%;
+		border-radius: 0px;
+	}
+
+	.list-footer .btn:first-child, .list-footer .btn-large:first-child {
+		float: left;
+	}
+	.list-footer .btn:last-child, .list-footer .btn-large :last-child {
+		float: right;
+	}
+
 	h4 {
 		padding-top: 30px;
 	}
@@ -14,5 +33,11 @@ brand-edit, category-edit, question-edit, settings-edit {
 	span {
 		display: block;
 		margin-bottom: 10px;
+	}
+
+	@media(max-width: 768px) {
+		.list-header {
+			padding-left: 70px;
+		}
 	}
 }

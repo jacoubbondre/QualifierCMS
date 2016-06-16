@@ -1,13 +1,13 @@
 import {Pipe, PipeTransform, Injectable} from '@angular/core'
+import {Settings} from '../settings'
 
 @Pipe({
-	name: 'settingsFilter'
+	name: 'editableSettings'
 })
 @Injectable()
-export class SettingsFilterPipe implements PipeTransform {
-	private ignoredSettings = ['backtoresults']
-
+export class EditableSettingsPipe implements PipeTransform {
+	private settings = Settings.get()
 	transform(items) {
-		return items.filter(item => this.ignoredSettings.indexOf(item.name) == -1)
+		return items.filter(item => this.settings['application_settings'].uneditable.indexOf(item.name) == -1)
 	}
 }

@@ -28,6 +28,7 @@ main-app {
 	@import 'components/ui-navbar.scss';
 	@import 'components/brand-edit.scss';
 	@import 'components/ui-listcontainer.scss';
+	@import 'components/ui-app-settings.scss';
 
 	.list-header {
 		h4 {
@@ -43,5 +44,3 @@ main-app {
 		text-decoration: none;
 	}
 }
-
-@import 'components/browser-specific/ie.scss';
